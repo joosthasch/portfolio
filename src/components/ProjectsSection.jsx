@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import { projects } from "../data";
 import Card from "../components/Card/index.jsx";
-import { motion, useScroll } from "framer-motion";
+import { useScroll } from "framer-motion";
 
 export function ProjectsSection() {
   const container = useRef(null);

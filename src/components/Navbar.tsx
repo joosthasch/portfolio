@@ -2,8 +2,6 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import { useEffect, useState } from "react";
-
 export function Navbar() {
   return (
     <nav className="w-full bg-gray-100 dark:bg-black p-4 pt-16">

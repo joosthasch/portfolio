@@ -1,10 +1,8 @@
 // src/app/page.tsx
 "use client";
 
-import { Navbar } from "../components/Navbar";
 import { ScrollSection } from "../components/ScrollSelection";
 import { ProjectsSection } from "../components/ProjectsSection";
-import { StickyCursor } from "../components/StickyCursor";
 
 import { ReactLenis } from "lenis/react";
 
