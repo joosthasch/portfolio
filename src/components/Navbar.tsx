@@ -18,7 +18,7 @@ export function Navbar() {
               alt="Logo"
               width={28}
               height={28}
-              className="mx-4 "
+              className="mx-4 border-2 border-black"
             />
             Joost
           </Link>

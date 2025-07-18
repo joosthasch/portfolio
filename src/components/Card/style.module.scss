@@ -19,7 +19,7 @@
     h2{
       text-align: center;
       margin: 0px;
-      font-size: 28px;
+      font-size: 36px;
       font-family: 'Title';
     }
     .body{
@@ -33,9 +33,9 @@
         position: relative;
         top: 10%;
         p{
-          font-size: 16px;
+          font-size: 18px;
           &::first-letter{
-            font-size: 28px;
+            font-size: 36px;
           }
         }
         span{
@@ -43,7 +43,7 @@
           align-items: center;
           gap: 5px;
           a{
-            font-size: 12px;
+            font-size: 18px;
             text-decoration: underline;
             cursor: pointer;
           }

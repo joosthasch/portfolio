@@ -13,7 +13,7 @@ export function ProjectsSection() {
   });
 
   return (
-    <main ref={container} className="relative mt-[50vh] bg-white">
+    <main ref={container} className="relative  bg-white">
       {projects.map((project, i) => {
         const targetScale = 1 - ((projects.length - i) * 0.05);
         // 1 = Ende des Scroll-Containers

@@ -60,7 +60,7 @@ export function ScrollSection({
   const springConfig = { damping: 30, stiffness: 150 };
 
   return (
-    <section className={`h-[120vh] bg-white dark:bg-black ${montserrat.className}`}>  
+    <section className={`h-screen overflow-hidden bg-white dark:bg-black ${montserrat.className}`}>  
       {/* Navbar and Cursor */}
       <Navbar />
       <StickyCursor isHovered={isHovered} />
