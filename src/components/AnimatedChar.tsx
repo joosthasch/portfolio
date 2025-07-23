@@ -35,7 +35,7 @@ export function AnimatedChar({
       style={{ y, rotate }}
       onMouseEnter={() => onHover(true)}
       onMouseLeave={() => onHover(false)}
-      className="inline-block px-4 -mx-2 text-[12rem] font-extrabold text-gray-900 dark:text-gray-100"
+      className="inline-block px-4 -mx-2 text-2xl sm:text-6xl md:text-6xl lg:text-[9rem] font-extrabold text-gray-900 dark:text-gray-100"
     >
       {displayChar}
     </motion.span>

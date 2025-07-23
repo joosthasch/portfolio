@@ -9,25 +9,25 @@ export function Navbar() {
         <li>
           <Link
             href="/"
-            className="flex items-center text-3xl text-black dark:text-white"
+            className="flex items-center text-xl sm:text-3xl text-black dark:text-white"
           >
             <Image
               src="/assets/J_Logo.png" // Passe den Pfad und Dateinamen an!
               alt="Logo"
               width={28}
               height={28}
-              className="mx-4 border-2 border-black"
+              className="mx-4 border-2 border-black w-6 h-6 sm:w-10 sm:h-10 "
             />
             Joost
           </Link>
         </li>
         <li>
-          <ul className="flex space-x-6">
+          <ul className="flex space-x-6 sm:text-2xl">
             <li>
               <Link
                 href="/about"
                 className={`
-                    relative inline-block text-2xl
+                    relative inline-block
                     transition-transform duration-300 ease
                     hover:-translate-y-1
 
@@ -49,7 +49,7 @@ export function Navbar() {
               <Link
                 href="/blog"
                 className={`
-                    relative inline-block text-2xl
+                    relative inline-block
                     transition-transform duration-300 ease
                     hover:-translate-y-1
 
@@ -71,7 +71,7 @@ export function Navbar() {
               <Link
                 href="/contact"
                 className={`
-                    relative inline-block text-2xl
+                    relative inline-block
                     transition-transform duration-300 ease
                     hover:-translate-y-1
 

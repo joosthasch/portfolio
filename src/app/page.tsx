@@ -22,7 +22,7 @@ export default function Home() {
         <ScrollSection />
 
         {/* Pull ProjectsSection up by 100vh, and put it on top */}
-        <div>
+        <div className="relative z-10">
           <ProjectSectionV2 />
         </div>
         <div className="relative z-10">

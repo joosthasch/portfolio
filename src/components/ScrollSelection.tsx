@@ -13,7 +13,7 @@ const montserrat = Montserrat({
 });
 
 export function ScrollSection({
-  maxOffset = 750,
+  maxOffset = 1000,
   maxRotate = 30,
   scrollRange = 500,
 }: {
@@ -60,9 +60,9 @@ export function ScrollSection({
   return (
     <section
       className={`
-        relative 
-        h-screen pb-40 overflow-hidden 
-        bg-white dark:bg-black 
+        relative
+        h-[150vh] overflow-hidden
+        bg-white dark:bg-black
         ${montserrat.className}
       `}
     >
@@ -70,10 +70,11 @@ export function ScrollSection({
       <Navbar />
       <StickyCursor isHovered={isHovered} />
 
-      <div className="sticky top-0 h-screen">
-        <div className="container mx-auto flex flex-col items-start pt-24">
+      {/* Sticky block anchors bottom-left while in viewport */}
+      <div className="fixed bottom-0 w-full">
+        <div className="container mx-auto flex flex-col justify-end pb-16 space-y-4 pl-6 lg:pl-0">
           {lines.map((line, lineIdx) => (
-            <div key={lineIdx} className="flex">
+            <div key={lineIdx}>
               {Array.from(line).map((char, i) => (
                 <AnimatedChar
                   key={i}
@@ -90,14 +91,16 @@ export function ScrollSection({
         </div>
       </div>
 
-      {/* 👉 Scroll indicator in the bottom-right */}
+      {/* 👉 Scroll indicator in the bottom-right (constrained) */}
       {!scrolled && (
-        <div className="absolute bottom-8 right-8 z-50 flex items-center space-x-2 transition-opacity duration-500">
-          <span className="text-3xl tracking-wider">Scroll</span>
-          <ArrowDownRight className="w-10 h-10" />
+        <div className="hidden sm:block fixed bottom-0 w-full pointer-events-none">
+          <div className="container mx-auto flex justify-end items-end
+           pb-16 pointer-events-auto">
+              <span className="sm:text-2xl lg:text-4xl tracking-wider">Scroll</span>
+              <ArrowDownRight className="sm:pt-2 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
+          </div>
         </div>
       )}
     </section>
   );
 }
-
