@@ -3,8 +3,11 @@
 
 import { ScrollSection } from "../components/ScrollSelection";
 import { ProjectsSection } from "../components/ProjectsSection";
+import ProjectSectionV2 from "../components/ProjectSectionV2";
 
 import { ReactLenis } from "lenis/react";
+
+
 
 
 export default function Home() {
@@ -19,6 +22,9 @@ export default function Home() {
         <ScrollSection />
 
         {/* Pull ProjectsSection up by 100vh, and put it on top */}
+        <div>
+          <ProjectSectionV2 />
+        </div>
         <div className="relative z-10">
           <ProjectsSection />
         </div>

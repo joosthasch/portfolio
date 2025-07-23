@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Montserrat } from "next/font/google";
 import { Navbar } from "./Navbar";
 import { StickyCursor } from "./StickyCursor";
 import { AnimatedChar } from "./AnimatedChar";
+import { ArrowDownRight } from "lucide-react";
 
 // Load Montserrat font
 const montserrat = Montserrat({
@@ -21,6 +22,15 @@ export function ScrollSection({
   scrollRange?: number;
 }) {
   const [isHovered, setIsHovered] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   // Define separate lines of text
   const lines = React.useMemo(
@@ -48,13 +58,20 @@ export function ScrollSection({
   const springConfig = { damping: 30, stiffness: 150 };
 
   return (
-    <section className={`h-screen overflow-hidden bg-white dark:bg-black ${montserrat.className}`}>
+    <section
+      className={`
+        relative 
+        h-screen pb-40 overflow-hidden 
+        bg-white dark:bg-black 
+        ${montserrat.className}
+      `}
+    >
       {/* Navbar and Cursor */}
       <Navbar />
       <StickyCursor isHovered={isHovered} />
 
       <div className="sticky top-0 h-screen">
-        <div className="container mx-auto flex flex-col items-start space-y-4 pt-24">
+        <div className="container mx-auto flex flex-col items-start pt-24">
           {lines.map((line, lineIdx) => (
             <div key={lineIdx} className="flex">
               {Array.from(line).map((char, i) => (
@@ -72,6 +89,14 @@ export function ScrollSection({
           ))}
         </div>
       </div>
+
+      {/* 👉 Scroll indicator in the bottom-right */}
+      {!scrolled && (
+        <div className="absolute bottom-8 right-8 z-50 flex items-center space-x-2 transition-opacity duration-500">
+          <span className="text-3xl tracking-wider">Scroll</span>
+          <ArrowDownRight className="w-10 h-10" />
+        </div>
+      )}
     </section>
   );
 }
