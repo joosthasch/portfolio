@@ -4,6 +4,7 @@ import { Navbar } from "./Navbar";
 import { StickyCursor } from "./StickyCursor";
 import { AnimatedChar } from "./AnimatedChar";
 import { ArrowDownRight } from "lucide-react";
+import Silk from '../../Reactbits/Silk/Silk';
 
 // Load Montserrat font
 const montserrat = Montserrat({
@@ -15,7 +16,7 @@ const montserrat = Montserrat({
 export function ScrollSection({
   maxOffset = 1000,
   maxRotate = 30,
-  scrollRange = 500,
+  scrollRange = 700,
 }: {
   maxOffset?: number;
   maxRotate?: number;
@@ -66,12 +67,23 @@ export function ScrollSection({
         ${montserrat.className}
       `}
     >
+      <div className="h-full w-full fixed">
+        <Silk
+          speed={3}
+          scale={1}
+          color="#43286B"
+          noiseIntensity={1}
+          rotation={0}
+          className="sticky"
+        />
+      </div>
       {/* Navbar and Cursor */}
       <Navbar />
       <StickyCursor isHovered={isHovered} />
 
       {/* Sticky block anchors bottom-left while in viewport */}
       <div className="fixed bottom-0 w-full">
+        
         <div className="container mx-auto flex flex-col justify-end pb-16 space-y-4 pl-6 lg:pl-0">
           {lines.map((line, lineIdx) => (
             <div key={lineIdx}>

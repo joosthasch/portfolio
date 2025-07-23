@@ -4,20 +4,13 @@ import Image from "next/image";
 
 export function Navbar() {
   return (
-    <nav className="w-full bg-gray-100 dark:bg-black p-4 pt-16">
+    <nav className="fixed top-0 left-0 w-full p-4 pt-16 z-50">
       <ul className="container mx-auto flex justify-between items-center">
         <li>
           <Link
             href="/"
-            className="flex items-center text-xl sm:text-3xl text-black dark:text-white"
+            className="flex items-center text-xl sm:text-3xl text-white"
           >
-            <Image
-              src="/assets/J_Logo.png" // Passe den Pfad und Dateinamen an!
-              alt="Logo"
-              width={28}
-              height={28}
-              className="mx-4 border-2 border-black w-6 h-6 sm:w-10 sm:h-10 "
-            />
             Joost
           </Link>
         </li>
