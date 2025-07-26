@@ -1,12 +1,18 @@
 "use client";
-
 import { useEffect, useState } from "react";
+import { ReactLenis } from "lenis/react";
+import Image from "next/image";
+
 const FlunkE = () => {
 
   const [scrollY, setScrollY] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  // Use 1200 or any default width as initial value (safe for SSR)
+  const [windowWidth, setWindowWidth] = useState(1200);
 
   useEffect(() => {
+
+    // Now window is defined
+    setWindowWidth(window.innerWidth);
 
     const handleScroll = () => setScrollY(window.scrollY);
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -22,11 +28,12 @@ const FlunkE = () => {
   }, []);
   
   return (
-    <div>
-      
-      {/* Hero Section */}
+    <ReactLenis root>
+      <div>
 
-      <section className="relative h-[250vh] flex flex-col items-center justify-center bg-white overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.7))] before:pointer-events-none before:z-20">
+        {/* Hero Section */}
+
+      <section className="relative h-[250vh] flex flex-col items-center justify-center bg-white text-black overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.7))] before:pointer-events-none before:z-20">
       
       {/* Parallax Notizblasen */}
 
@@ -60,66 +67,84 @@ const FlunkE = () => {
       
       {/* Parallax Image */}
       
-      <img 
+      <Image
         src="/assets/flunke/bowling.png"
-        className='absolute w-80'
+        alt="Bowling Ball"
+        className="absolute w-80"
         style={{
           top: '55%',
-          left: window.innerWidth < 768 ? "5%" : "25%",
-          maxWidth: window.innerWidth < 768 ? "250px" : "400px",
+          left: windowWidth < 768 ? "5%" : "25%",
+          maxWidth: windowWidth < 768 ? "250px" : "400px",
           width: "100%",
           objectFit: "contain",
           zIndex: "10",
           transform: `translate(-0%, calc(-50% + ${scrollY * 0.5 }px))`
-        }}></img>
-      <img 
-        src="/assets/flunke/win.png"
+        }}
+        width={400} // set a width (in px) matching your design
+        height={400} // set a height (in px) matching your design
+      />
+      <Image
+        src="/assets/flunke/win.png" 
+        alt="Flunk-E Win"
         className='absolute w-80'
         style={{
           top: '5%',
-          left: window.innerWidth < 768 ? "65%" : "75%",
-          maxWidth: window.innerWidth < 768 ? "250px" : "400px",
+          left: windowWidth < 768 ? "65%" : "75%",
+          maxWidth: windowWidth < 768 ? "250px" : "400px",
           width: "100%",
           objectFit: "contain",
           zIndex: "10",
           transform: `translate(-0%, calc(-50% + ${scrollY * 0.5 }px))`
-        }}></img>
-      <img 
+        }}
+        width={400}
+        height={400}
+      />
+      <Image
         src="/assets/flunke/bier.png"
+        alt="Flunk-E Beer"
         className='absolute w-80'
         style={{
           top: '25%',
           left: '1%',
-          maxWidth: window.innerWidth < 768 ? "250px" : "400px",
+          maxWidth: windowWidth < 768 ? "250px" : "400px",
           width: "100%",
           objectFit: "contain",
           zIndex: "10",
           transform: `translate(-0%, calc(-50% + ${scrollY * 0.5 }px)) rotate(-15deg)`
-        }}></img>
-      <img 
+        }}
+        width={400}
+        height={400}
+      />
+      <Image
         src="/assets/flunke/tornado.png"
+        alt="Flunk-E Tornado"
         className='absolute w-80'
         style={{
           top: '45%',
-          left: window.innerWidth < 768 ? "60%" : "70%",
-          maxWidth: window.innerWidth < 768 ? "250px" : "400px",
+          left: windowWidth < 768 ? "60%" : "70%",
+          maxWidth: windowWidth < 768 ? "250px" : "400px",
           width: "100%",
           objectFit: "contain",
           zIndex: "10",
           transform: `translate(-0%, calc(-50% + ${scrollY * 0.5 }px))`
-        }}></img>
-      <img
-        src="/assets/flunke/Flunk_Screen.png"
+        }}
+        width={400}
+        height={400}
+      />
+      <Image
+        src="/assets/flunke/Flunk_Screen.png" 
         alt="Flunk-E Screenshot"
         className="absolute top-1/4 left-1/2 transform -translate-x-1/2"
         style={{
           top: '45%',
-          maxWidth: window.innerWidth < 768 ? "300px" : "400px",
+          maxWidth: windowWidth < 768 ? "300px" : "400px",
           width: "100%",
           objectFit: "contain",
           zIndex: "10",
           transform: `translate(-0%, calc(-50% + ${scrollY * 0.1}px)) scale(${Math.max(0.8, 1 - scrollY * 0.0005)})`
         }}
+        width={400}
+        height={400}
       />
 
       {/* Title */}
@@ -134,6 +159,7 @@ const FlunkE = () => {
       </h1>
     </section>
     </div>
+        </ReactLenis>
   )
 }
 

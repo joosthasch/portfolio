@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Montserrat } from "next/font/google";
-import { Navbar } from "./Navbar";
-import { StickyCursor } from "./StickyCursor";
+import { Navbar } from "../Navbar";
+import { StickyCursor } from "../StickyCursor";
 import { AnimatedChar } from "./AnimatedChar";
 import { ArrowDownRight } from "lucide-react";
-import Silk from '../../Reactbits/Silk/Silk';
+import Silk from '../../../Reactbits/Silk/Silk';
 
 // Load Montserrat font
 const montserrat = Montserrat({

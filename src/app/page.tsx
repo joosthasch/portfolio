@@ -1,39 +1,25 @@
 // src/app/page.tsx
 "use client";
 
-import { ScrollSection } from "../components/ScrollSelection";
-import { ProjectsSection } from "../components/ProjectsSection";
-import ProjectSectionV2 from "../components/ProjectSectionV2";
-
+import { ScrollSection } from "../components/ScrollSection/ScrollSelection";
 import { ReactLenis } from "lenis/react";
-
-
-
+import { ProjectsSection } from "../components/ProjectsSection";
 
 export default function Home() {
-  
   return (
     <ReactLenis root>
       <div className="bg-white dark:bg-black">
-
-      {/* container to stack sections */}
-      <div className="relative">
-        {/* Your scroll-driven intro */}
-        <ScrollSection />
-
-        {/* Pull ProjectsSection up by 100vh, and put it on top */}
-        <div className="relative z-10">
-          <ProjectSectionV2 />
+        <div className="relative">
+          <ScrollSection />
         </div>
+        {/* Projects Section */}
         <div className="relative z-10">
           <ProjectsSection />
         </div>
+        <footer className="w-full py-4 text-center text-sm text-gray-600 dark:text-gray-400">
+          © {new Date().getFullYear()} MySite
+        </footer>
       </div>
-
-      <footer className="w-full py-4 text-center text-sm text-gray-600 dark:text-gray-400">
-        © {new Date().getFullYear()} MySite
-      </footer>
-    </div>
     </ReactLenis>
   );
 }
