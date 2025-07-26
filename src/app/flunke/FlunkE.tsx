@@ -14,7 +14,16 @@ const FlunkE = () => {
     // Now window is defined
     setWindowWidth(window.innerWidth);
 
-    const handleScroll = () => setScrollY(window.scrollY);
+    let ticking = false;
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrollY(window.scrollY);
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
     const handleResize = () => setWindowWidth(window.innerWidth);
 
     window.addEventListener("scroll", handleScroll);
@@ -37,41 +46,39 @@ const FlunkE = () => {
       
       {/* Parallax Notizblasen */}
 
-      <div 
-        className='absolute bg-white w-72 md:w-96 h-auto z-30 rounded-3xl shadow-2xl left-1/2 lg:left-20 transform -translate-x-1/2 lg:translate-x-0' 
+      <div
+        className="absolute bg-white w-72 md:w-96 h-auto z-30 rounded-3xl shadow-2xl left-1/2 lg:left-20 transform -translate-x-1/2 lg:translate-x-0"
         style={{
           top: windowWidth < 1024 ? '84%' : '65%',
-          opacity: Math.max(0, Math.min(1.2, 1 - Math.abs(scrollY -800) / 1200)),
           transform: `translate(-0%, calc(-50% + ${scrollY * -0.3 }px))`
         }}>
-        <p className='p-8'><b>🏐 Innovatives Gameplay:</b> Ein Flunkyball-Spiel mit integriertem Sensor im Ball, der Würfe und Treffer erkennt und spezielle Events auslöst.</p>
+        <p className="p-8"><b>🏐 Innovatives Gameplay:</b> Ein Flunkyball-Spiel mit integriertem Sensor im Ball, der Würfe und Treffer erkennt und spezielle Events auslöst.</p>
       </div>
-      <div 
-        className='absolute bg-white w-72 md:w-96 h-auto z-30 rounded-3xl shadow-2xl left-1/2 lg:left-8/12 transform -translate-x-1/2 lg:translate-x-0' 
+      <div
+        className="absolute bg-white w-72 md:w-96 h-auto z-30 rounded-3xl shadow-2xl left-1/2 lg:left-8/12 transform -translate-x-1/2 lg:translate-x-0"
         style={{
           top: windowWidth < 1024 ? '98%' : '84%',
-          opacity: Math.max(0, Math.min(1.2, 1 - Math.abs(scrollY - 1000) / 1200)),
           transform: `translate(-0%, calc(-50% + ${scrollY * -0.3 }px))`
         }}>
-        <p className='p-8'><b>⚙️ Technische Umsetzung:</b> Der Sensor sendet Daten in Echtzeit an eine App, die das Spielgeschehen dynamisch steuert.</p>
+        <p className="p-8"><b>⚙️ Technische Umsetzung:</b> Der Sensor sendet Daten in Echtzeit an eine App, die das Spielgeschehen dynamisch steuert.</p>
       </div>
-      <div 
-        className='absolute bg-white w-72 md:w-96 h-auto z-30 rounded-3xl shadow-2xl left-1/2 lg:left-3/12 transform -translate-x-1/2' 
+      <div
+        className="absolute bg-white w-72 md:w-96 h-auto z-30 rounded-3xl shadow-2xl left-1/2 lg:left-3/12 transform -translate-x-1/2"
         style={{
           top: windowWidth < 1024 ? '112%' : '98%',
-          opacity: Math.max(0, Math.min(1.2, 1 - Math.abs(scrollY - 1200) / 1200)),
           transform: `translate(-0%, calc(-50% + ${scrollY * -0.3 }px))`
         }}>
-        <p className='p-8'><b>📱 Interaktive App:</b> Live-Anzeige von Regeln, Herausforderungen und Spielständen – direkt angepasst an die Sensordaten.</p>
+        <p className="p-8"><b>📱 Interaktive App:</b> Live-Anzeige von Regeln, Herausforderungen und Spielständen – direkt angepasst an die Sensordaten.</p>
       </div>
       
       {/* Parallax Image */}
       
       <Image
-        src="/assets/flunke/bowling.png"
+        src="/assets/flunke/bowling.webp"
         alt="Bowling Ball"
         className="absolute w-80"
         style={{
+          willChange: "transform",
           top: '55%',
           left: windowWidth < 768 ? "5%" : "25%",
           maxWidth: windowWidth < 768 ? "250px" : "400px",
@@ -80,14 +87,15 @@ const FlunkE = () => {
           zIndex: "10",
           transform: `translate(-0%, calc(-50% + ${scrollY * 0.5 }px))`
         }}
-        width={400} // set a width (in px) matching your design
-        height={400} // set a height (in px) matching your design
+        width={400}
+        height={400}
       />
       <Image
-        src="/assets/flunke/win.png" 
+        src="/assets/flunke/win.webp"
         alt="Flunk-E Win"
         className='absolute w-80'
         style={{
+            willChange: "transform",
           top: '5%',
           left: windowWidth < 768 ? "65%" : "75%",
           maxWidth: windowWidth < 768 ? "250px" : "400px",
@@ -100,10 +108,11 @@ const FlunkE = () => {
         height={400}
       />
       <Image
-        src="/assets/flunke/bier.png"
+        src="/assets/flunke/beer.webp"
         alt="Flunk-E Beer"
         className='absolute w-80'
         style={{
+            willChange: "transform",
           top: '25%',
           left: '1%',
           maxWidth: windowWidth < 768 ? "250px" : "400px",
@@ -116,10 +125,11 @@ const FlunkE = () => {
         height={400}
       />
       <Image
-        src="/assets/flunke/tornado.png"
+        src="/assets/flunke/tornado.webp"
         alt="Flunk-E Tornado"
         className='absolute w-80'
         style={{
+            willChange: "transform",
           top: '45%',
           left: windowWidth < 768 ? "60%" : "70%",
           maxWidth: windowWidth < 768 ? "250px" : "400px",
@@ -132,10 +142,11 @@ const FlunkE = () => {
         height={400}
       />
       <Image
-        src="/assets/flunke/Flunk_Screen.png" 
+        src="/assets/flunke/Flunk_Screen.webp" 
         alt="Flunk-E Screenshot"
         className="absolute top-1/4 left-1/2 transform -translate-x-1/2"
         style={{
+            willChange: "transform",
           top: '45%',
           maxWidth: windowWidth < 768 ? "300px" : "400px",
           width: "100%",
