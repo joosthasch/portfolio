@@ -85,7 +85,10 @@ const FlunkE = () => {
           width: "100%",
           objectFit: "contain",
           zIndex: "10",
-          transform: `translate(-0%, calc(-50% + ${scrollY * 0.5 }px))`
+          transform:
+            windowWidth < 768
+              ? "translate(-0%, -50%)"
+              : `translate(-0%, calc(-50% + ${scrollY * 0.5}px))`
         }}
         width={400}
         height={400}
@@ -93,16 +96,19 @@ const FlunkE = () => {
       <Image
         src="/assets/flunke/win.webp"
         alt="Flunk-E Win"
-        className='absolute w-80'
+        className="absolute w-80"
         style={{
-            willChange: "transform",
+          willChange: "transform",
           top: '5%',
           left: windowWidth < 768 ? "65%" : "75%",
           maxWidth: windowWidth < 768 ? "250px" : "400px",
           width: "100%",
           objectFit: "contain",
           zIndex: "10",
-          transform: `translate(-0%, calc(-50% + ${scrollY * 0.5 }px))`
+          transform:
+            windowWidth < 768
+              ? "translate(-0%, -50%)"
+              : `translate(-0%, calc(-50% + ${scrollY * 0.5}px))`
         }}
         width={400}
         height={400}
@@ -110,16 +116,19 @@ const FlunkE = () => {
       <Image
         src="/assets/flunke/beer.webp"
         alt="Flunk-E Beer"
-        className='absolute w-80'
+        className="absolute w-80"
         style={{
-            willChange: "transform",
+          willChange: "transform",
           top: '25%',
-          left: '1%',
+          left: windowWidth < 768 ? "1%" : "1%",
           maxWidth: windowWidth < 768 ? "250px" : "400px",
           width: "100%",
           objectFit: "contain",
           zIndex: "10",
-          transform: `translate(-0%, calc(-50% + ${scrollY * 0.5 }px)) rotate(-15deg)`
+          transform:
+            windowWidth < 768
+              ? "translate(-0%, -50%) rotate(-15deg)"
+              : `translate(-0%, calc(-50% + ${scrollY * 0.5}px)) rotate(-15deg)`
         }}
         width={400}
         height={400}
@@ -127,32 +136,38 @@ const FlunkE = () => {
       <Image
         src="/assets/flunke/tornado.webp"
         alt="Flunk-E Tornado"
-        className='absolute w-80'
+        className="absolute w-80"
         style={{
-            willChange: "transform",
+          willChange: "transform",
           top: '45%',
           left: windowWidth < 768 ? "60%" : "70%",
           maxWidth: windowWidth < 768 ? "250px" : "400px",
           width: "100%",
           objectFit: "contain",
           zIndex: "10",
-          transform: `translate(-0%, calc(-50% + ${scrollY * 0.5 }px))`
+          transform:
+            windowWidth < 768
+              ? "translate(-0%, -50%)"
+              : `translate(-0%, calc(-50% + ${scrollY * 0.5}px))`
         }}
         width={400}
         height={400}
       />
       <Image
-        src="/assets/flunke/Flunk_Screen.webp" 
+        src="/assets/flunke/Flunk_Screen.webp"
         alt="Flunk-E Screenshot"
         className="absolute top-1/4 left-1/2 transform -translate-x-1/2"
         style={{
-            willChange: "transform",
+          willChange: "transform",
           top: '45%',
           maxWidth: windowWidth < 768 ? "300px" : "400px",
           width: "100%",
           objectFit: "contain",
           zIndex: "10",
-          transform: `translate(-0%, calc(-50% + ${scrollY * 0.1}px)) scale(${Math.max(0.8, 1 - scrollY * 0.0005)})`
+          transform:
+            windowWidth < 768
+              ? "translate(-0%, -50%) scale(0.9)"
+              : `translate(-0%, calc(-50% + ${scrollY * 0.1}px)) scale(${Math.max(0.8, 1 - scrollY * 0.0005)})`
         }}
         width={400}
         height={400}
