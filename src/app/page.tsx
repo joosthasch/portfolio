@@ -4,6 +4,7 @@
 import { ScrollSection } from "../components/ScrollSection/ScrollSelection";
 import { ReactLenis } from "lenis/react";
 import { ProjectsSection } from "../components/ProjectsSection";
+import ZoomParallax from "../components/ZoomParallax";
 
 export default function Home() {
   return (
@@ -16,7 +17,12 @@ export default function Home() {
         <div className="relative z-10">
           <ProjectsSection />
         </div>
-        <footer className="w-full py-4 text-center text-sm text-gray-600 dark:text-gray-400">
+        {/* Zoom Parallax Section */}
+        <div className="relative z-20">
+          <ZoomParallax />
+        </div>
+        {/* Footer */}  
+        <footer className="w-full py-40 text-center text-sm text-gray-600 dark:text-gray-400">
           © {new Date().getFullYear()} MySite
         </footer>
       </div>
