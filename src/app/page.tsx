@@ -3,8 +3,9 @@
 
 import { ScrollSection } from "../components/ScrollSection/ScrollSelection";
 import { ReactLenis } from "lenis/react";
-import { ProjectsSection } from "../components/ProjectsSection";
-import ZoomParallax from "../components/ZoomParallax";
+import About from '../components/About';
+import Projects from '../components/Projects';
+import Contact from '../components/Contact';
 
 export default function Home() {
   return (
@@ -14,14 +15,16 @@ export default function Home() {
           <ScrollSection />
         </div>
         {/* Projects Section */}
+         <div className="relative z-20">
+          <Projects />
+        </div>
         <div className="relative z-10">
-          <ProjectsSection />
+          <About />
         </div>
-        {/* Zoom Parallax Section */}
-        <div className="relative z-20">
-          <ZoomParallax />
+        <div className="relative z-10">
+          <Contact />
         </div>
-        {/* Footer */}  
+        {/* Footer */}
         <footer className="w-full py-40 text-center text-sm text-gray-600 dark:text-gray-400">
           © {new Date().getFullYear()} MySite
         </footer>

@@ -1,9 +1,10 @@
 // src/app/components/Navbar.tsx
+"use client";
 import Link from "next/link";
 
 export function Navbar() {
   return (
-    <nav className="fixed top-0 left-0 w-full p-4 pt-16 z-50">
+    <nav className="fixed top-0 left-0 w-full p-4 pt-16 z-15">
       <ul className="container mx-auto flex justify-between items-center">
         <li>
           <Link

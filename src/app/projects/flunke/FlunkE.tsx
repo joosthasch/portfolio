@@ -42,9 +42,9 @@ const FlunkE = () => {
 
         {/* Hero Section */}
 
-        <section className="relative h-[250vh] flex flex-col items-center justify-center bg-white text-black overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.7))] before:pointer-events-none before:z-20">
+        <section className="relative h-[150vh] flex flex-col items-center justify-center bg-white text-black overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.7))] before:pointer-events-none before:z-20">
         
-        {/* Parallax Notizblasen */}
+        {/* Parallax Notizblasen 
 
           <div
             className="absolute bg-white w-72 md:w-96 h-auto z-30 rounded-3xl shadow-2xl"
@@ -72,6 +72,7 @@ const FlunkE = () => {
             }}>
             <p className="p-8"><b>📱 Interaktive App:</b> Live-Anzeige von Regeln, Herausforderungen und Spielständen – direkt angepasst an die Sensordaten.</p>
           </div>
+          */}
           
           {/* Parallax Image */}
           
@@ -82,7 +83,7 @@ const FlunkE = () => {
             style={{
               willChange: "transform",
               top: '55%',
-              left: windowWidth < 768 ? "5%" : "25%",
+              left: windowWidth < 768 ? "5%" : "15%",
               maxWidth: windowWidth < 768 ? "250px" : "400px",
               width: "100%",
               objectFit: "contain",
@@ -122,7 +123,7 @@ const FlunkE = () => {
             style={{
               willChange: "transform",
               top: '25%',
-              left: windowWidth < 768 ? "1%" : "20%", // More right on desktop
+              left: windowWidth < 768 ? "1%" : "13%", // More right on desktop
               maxWidth: windowWidth < 768 ? "250px" : "400px",
               width: "100%",
               objectFit: "contain",
@@ -161,7 +162,7 @@ const FlunkE = () => {
             className="absolute top-1/4 left-1/2 transform -translate-x-1/2"
             style={{
               willChange: "transform",
-              top: '45%',
+              top: '64%',
               maxWidth: windowWidth < 768 ? "300px" : "400px",
               width: "100%",
               objectFit: "contain",
