@@ -4,7 +4,6 @@ import { Navbar } from "../Navbar";
 import { StickyCursor } from "../StickyCursor";
 import { AnimatedChar } from "./AnimatedChar";
 import { ArrowDownRight } from "lucide-react";
-import Silk from '../../../Reactbits/Silk/Silk';
 
 // Load Montserrat font
 const montserrat = Montserrat({
@@ -14,9 +13,9 @@ const montserrat = Montserrat({
 });
 
 export function ScrollSection({
-  maxOffset = 1000,
+  maxOffset = 1500,
   maxRotate = 30,
-  scrollRange = 700,
+  scrollRange = 1200,
 }: {
   maxOffset?: number;
   maxRotate?: number;
@@ -63,20 +62,10 @@ export function ScrollSection({
       className={`
         relative
         h-[150vh] overflow-hidden
-        bg-white dark:bg-black
+        bg-[#c8c4bb]
         ${montserrat.className}
       `}
     >
-      <div className="h-full w-full fixed">
-        <Silk
-          speed={3}
-          scale={1}
-          color="#43286B"
-          noiseIntensity={1}
-          rotation={0}
-          className="sticky"
-        />
-      </div>
       {/* Navbar and Cursor */}
       <Navbar />
       <StickyCursor isHovered={isHovered} />
@@ -108,8 +97,8 @@ export function ScrollSection({
         <div className="hidden sm:block fixed bottom-0 w-full pointer-events-none">
           <div className="container mx-auto flex justify-end items-end
            pb-16 pointer-events-auto">
-              <span className="sm:text-2xl lg:text-4xl tracking-wider">Scroll</span>
-              <ArrowDownRight className="sm:pt-2 sm:w-10 sm:h-10 lg:w-12 lg:h-12" />
+              <span className="sm:text-2xl lg:text-4xl tracking-wider text-gray-900">Scroll</span>
+              <ArrowDownRight className="sm:pt-2 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-gray-900" />
           </div>
         </div>
       )}

@@ -12,7 +12,7 @@ export default function ProjectNavbar() {
         aria-label="Zurück zur Startseite"
       >
         <ArrowLeft className="w-5 h-5" />
-        Zurück zur Startseite
+        Home
       </Link>
     </nav>
   );

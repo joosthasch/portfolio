@@ -47,7 +47,7 @@ const Projects: React.FC = () => {
       id: 3,
       title: "Willenbrock",
       type: "Usability Untersuchung",
-      image: "/images/projects/willenbrock.png",
+      image: "/images/projects/willenbrock/willenbrock.png",
       topPadding: "pt-8",
       backgroundColor: "bg-green-100",
       detailUrl: "/projects/willenbrock",
@@ -80,8 +80,8 @@ const Projects: React.FC = () => {
     };
 
   const getBackgroundColor = () => {
-    if (hoveredIndex === null) return 'bg-white';
-    return projects[hoveredIndex]?.backgroundColor || 'bg-white';
+    if (hoveredIndex === null) return 'bg-[#efe7d7]';
+    return projects[hoveredIndex]?.backgroundColor || 'bg-gray-100';
   };
 
   return (
@@ -115,7 +115,7 @@ const Projects: React.FC = () => {
                     {project.detailUrl ? (
                     <Link
                         href={project.detailUrl}
-                        className="text-3xl md:text-4xl lg:text-7xl font-light text-gray-500 hover:text-black transition-colors duration-300 flex items-center"
+                        className="text-3xl md:text-4xl lg:text-7xl font-light text-gray-600 hover:text-black transition-colors duration-300 flex items-center"
                     >
                         {project.title}
                         <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -129,7 +129,7 @@ const Projects: React.FC = () => {
                     )}
                 </div>
                 <div className="text-right">
-                    <span className="text-sm md:text-base text-gray-500 font-light">
+                    <span className="text-sm md:text-base text-gray-600 font-light">
                     {project.type}
                     </span>
                 </div>

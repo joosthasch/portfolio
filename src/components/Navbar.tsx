@@ -9,13 +9,13 @@ export function Navbar() {
         <li>
           <Link
             href="/"
-            className="flex items-center text-xl sm:text-3xl text-white"
+            className="flex items-center text-xl sm:text-3xl text-gray-900"
           >
             Joost
           </Link>
         </li>
         <li>
-          <ul className="flex space-x-6 sm:text-2xl">
+          <ul className="flex space-x-6 sm:text-3xl text-gray-900">
             <li>
               <Link
                 href="/about"
@@ -28,7 +28,7 @@ export function Navbar() {
                     before:absolute before:-bottom-[2px]
                     before:left-0 before:right-0
                     before:h-[5px]
-                    before:bg-white
+                    before:bg-gray-900
                     before:origin-bottom
                     before:scale-y-0
                     before:transition-transform before:duration-300 before:ease
@@ -50,7 +50,7 @@ export function Navbar() {
                     before:absolute before:-bottom-[2px]
                     before:left-0 before:right-0
                     before:h-[5px]
-                    before:bg-white
+                    before:bg-gray-900
                     before:origin-bottom
                     before:scale-y-0
                     before:transition-transform before:duration-300 before:ease
@@ -72,7 +72,7 @@ export function Navbar() {
                     before:absolute before:-bottom-[2px]
                     before:left-0 before:right-0
                     before:h-[5px]
-                    before:bg-white
+                    before:bg-gray-900
                     before:origin-bottom
                     before:scale-y-0
                     before:transition-transform before:duration-300 before:ease
