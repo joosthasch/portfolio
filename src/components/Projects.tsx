@@ -94,55 +94,54 @@ const Projects: React.FC = () => {
       {/* Header */}
       <div className="pt-20 pb-8 px-6 md:px-20">
         <div className="w-full">
-          <h2 className="text-4xl md:text-5xl font-light text-gray-900">
+          <h2 className="text-4xl md:text-7xl lg:text-9xl font-light text-gray-900">
             My Work
           </h2>
         </div>
       </div>
 
       {/* Projects List */}
-      <div className="flex-1 flex items-center px-6 md:px-20 py-20">
+    <div className="flex-1 flex items-center px-6 md:px-20 py-20">
         <div className="w-full">
-          {projects.map((project, index) => (
+            {projects.map((project, index) => (
             <div key={project.id}>
-              {/* Project Row */}
-              <div
-                className="group w-full py-6 md:py-8 flex items-center justify-between cursor-pointer transition-all duration-300"
+                {/* Project Row (relative for absolute separator) */}
+                <div
+                className="relative group w-full py-6 md:py-8 flex items-center justify-between cursor-pointer transition-all duration-300"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-              >
+                >
                 <div className="flex-1 py-6">
-                  {project.detailUrl ? (
+                    {project.detailUrl ? (
                     <Link
-                      href={project.detailUrl}
-                      className="text-3xl md:text-4xl lg:text-7xl font-light text-gray-500 hover:text-black transition-colors duration-300 flex items-center"
+                        href={project.detailUrl}
+                        className="text-3xl md:text-4xl lg:text-7xl font-light text-gray-500 hover:text-black transition-colors duration-300 flex items-center"
                     >
-                      {project.title}
-                      <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </Link>
-                  ) : (
-                    <div className="flex items-center">
-                      <h3 className="text-3xl md:text-4xl lg:text-7xl font-light text-gray-900">
                         {project.title}
-                      </h3>
+                        <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    </Link>
+                    ) : (
+                    <div className="flex items-center">
+                        <h3 className="text-3xl md:text-4xl lg:text-7xl font-light text-gray-900">
+                        {project.title}
+                        </h3>
                     </div>
-                  )}
+                    )}
                 </div>
                 <div className="text-right">
-                  <span className="text-sm md:text-base text-gray-500 font-light">
+                    <span className="text-sm md:text-base text-gray-500 font-light">
                     {project.type}
-                  </span>
+                    </span>
                 </div>
-              </div>
-
-              {/* Separator */}
-              {index < projects.length - 1 && (
-                <div className="h-px bg-black"></div>
-              )}
+                {/* Separator line (visible, part of hover area) */}
+                {index < projects.length - 1 && (
+                    <div className="absolute left-0 bottom-0 w-full h-px bg-black" />
+                )}
+                </div>
             </div>
-          ))}
+            ))}
         </div>
-      </div>
+    </div>
 
       {/* Floating Image Strip */}
       {hoveredIndex !== null && (

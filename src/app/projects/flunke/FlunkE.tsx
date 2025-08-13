@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { ReactLenis } from "lenis/react";
 import Image from "next/image";
+import ProjectNavbar from "@/components/ProjectNavbar";
 
 const FlunkE = () => {
 
@@ -40,10 +41,11 @@ const FlunkE = () => {
     <ReactLenis root>
       <div>
 
+
         {/* Hero Section */}
 
         <section className="relative h-[150vh] flex flex-col items-center justify-center bg-white text-black overflow-hidden before:content-[''] before:absolute before:inset-0 before:bg-[radial-gradient(circle,transparent_30%,rgba(0,0,0,0.7))] before:pointer-events-none before:z-20">
-        
+        <ProjectNavbar />
         {/* Parallax Notizblasen 
 
           <div
