@@ -49,7 +49,7 @@ export default function WillenbrockProject() {
               <div className="w-[100px] md:w-[150px] h-auto">
                 <Image
                   src="/images/projects/willenbrock/wein.png"
-                  alt="Weinflasche"
+                  alt="wein"
                   width={420}
                   height={600}
                   className="w-full h-auto object-contain"
