@@ -35,51 +35,7 @@ export function Navbar() {
                     hover:before:scale-y-100
                   `}
               >
-                About
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/blog"
-                className={`
-                    relative inline-block
-                    transition-transform duration-300 ease
-                    hover:-translate-y-1
-
-                    before:content-['']
-                    before:absolute before:-bottom-[2px]
-                    before:left-0 before:right-0
-                    before:h-[5px]
-                    before:bg-gray-900
-                    before:origin-bottom
-                    before:scale-y-0
-                    before:transition-transform before:duration-300 before:ease
-                    hover:before:scale-y-100
-                  `}
-              >
-                Blog
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact"
-                className={`
-                    relative inline-block
-                    transition-transform duration-300 ease
-                    hover:-translate-y-1
-
-                    before:content-['']
-                    before:absolute before:-bottom-[2px]
-                    before:left-0 before:right-0
-                    before:h-[5px]
-                    before:bg-gray-900
-                    before:origin-bottom
-                    before:scale-y-0
-                    before:transition-transform before:duration-300 before:ease
-                    hover:before:scale-y-100
-                  `}
-              >
-                Contact
+                Über mich
               </Link>
             </li>
           </ul>

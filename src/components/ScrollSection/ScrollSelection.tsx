@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { Montserrat } from "next/font/google";
 import { Navbar } from "../Navbar";
 import { StickyCursor } from "../StickyCursor";
 import { AnimatedChar } from "./AnimatedChar";
 import { ArrowDownRight } from "lucide-react";
 
-// Load Montserrat font
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  display: "swap",
-});
 
 export function ScrollSection({
   maxOffset = 1500,
@@ -63,7 +56,7 @@ export function ScrollSection({
         relative
         h-[150vh] overflow-hidden
         bg-[#c8c4bb]
-        ${montserrat.className}
+        font-archivo
       `}
     >
       {/* Navbar and Cursor */}

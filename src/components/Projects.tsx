@@ -27,8 +27,8 @@ const Projects: React.FC = () => {
     {
       id: 1,
       title: "Flunk-E",
-      type: "IoT Application",
-      image: "/images/projects/flunke.png",
+      type: "IoT-App",
+      image: "/images/projects/flunke01.png",
       topPadding: "pt-0",
       backgroundColor: "bg-orange-100",
       detailUrl: "/projects/flunke",
@@ -37,11 +37,11 @@ const Projects: React.FC = () => {
     {
       id: 2,
       title: "Van Goghs Gedankenwelt",
-      type: "VR Experience",
+      type: "VR Anwendung",
       image: "/images/projects/vangogh.png",
       topPadding: "pt-16",
       backgroundColor: "bg-purple-100",
-      detailUrl: "/projects/vangogh",
+      detailUrl: "/projects/van-gogh",
     },
     {
       id: 3,
@@ -51,15 +51,6 @@ const Projects: React.FC = () => {
       topPadding: "pt-8",
       backgroundColor: "bg-green-100",
       detailUrl: "/projects/willenbrock",
-    },
-    {
-      id: 4,
-      title: "E-Commerce Platform",
-      type: "Website",
-      image: "/images/projects/vangogh.png",
-      topPadding: "pt-24",
-      backgroundColor: "bg-orange-100",
-      detailUrl: "/projects/flunke",
     }
   ];
 
@@ -80,7 +71,7 @@ const Projects: React.FC = () => {
     };
 
   const getBackgroundColor = () => {
-    if (hoveredIndex === null) return 'bg-[#efe7d7]';
+    if (hoveredIndex === null) return 'bg-white';
     return projects[hoveredIndex]?.backgroundColor || 'bg-gray-100';
   };
 
@@ -88,14 +79,14 @@ const Projects: React.FC = () => {
     <section
       ref={sectionRef}
       id="projects"
-      className={`flex flex-col relative overflow-hidden transition-colors duration-500 pb-20 ${getBackgroundColor()}`}
+      className={`flex flex-col relative font-archivo overflow-hidden transition-colors duration-500 pb-20 ${getBackgroundColor()}`}
       onMouseMove={handleMouseMove}
     >
       {/* Header */}
       <div className="pt-20 pb-8 px-6 md:px-20">
         <div className="w-full">
           <h2 className="text-4xl md:text-7xl lg:text-9xl font-light text-gray-900">
-            My Work
+            Projekte
           </h2>
         </div>
       </div>
@@ -135,7 +126,7 @@ const Projects: React.FC = () => {
                 </div>
                 {/* Separator line (visible, part of hover area) */}
                 {index < projects.length - 1 && (
-                    <div className="absolute left-0 bottom-0 w-full h-px bg-black" />
+                    <div className="absolute left-0 bottom-0 w-full border-b border-black" />
                 )}
                 </div>
             </div>
