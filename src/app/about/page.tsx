@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { ReactLenis } from "lenis/react";
 import Link from "next/link";
 import { X } from "lucide-react";
