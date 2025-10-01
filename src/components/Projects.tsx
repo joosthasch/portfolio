@@ -16,6 +16,7 @@ interface Project {
   detailUrl?: string;
   githubUrl?: string;
   liveUrl?: string;
+  visible?: boolean; // NEU: Sichtbarkeit
 }
 
 const Projects: React.FC = () => {
@@ -32,7 +33,8 @@ const Projects: React.FC = () => {
       topPadding: "pt-0",
       backgroundColor: "bg-orange-100",
       detailUrl: "/projects/flunke",
-      githubUrl: "https://github.com/joosthasch/flunke"
+      githubUrl: "https://github.com/joosthasch/flunke",
+      visible: true
     },
     {
       id: 2,
@@ -42,6 +44,7 @@ const Projects: React.FC = () => {
       topPadding: "pt-16",
       backgroundColor: "bg-purple-100",
       detailUrl: "/projects/van-gogh",
+      visible: false // ausgeblendet
     },
     {
       id: 3,
@@ -51,8 +54,11 @@ const Projects: React.FC = () => {
       topPadding: "pt-8",
       backgroundColor: "bg-green-100",
       detailUrl: "/projects/willenbrock",
+      visible: true
     }
   ];
+
+  const visibleProjects = projects.filter(p => p.visible !== false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (sectionRef.current) {
@@ -72,7 +78,7 @@ const Projects: React.FC = () => {
 
   const getBackgroundColor = () => {
     if (hoveredIndex === null) return 'bg-white';
-    return projects[hoveredIndex]?.backgroundColor || 'bg-gray-100';
+    return visibleProjects[hoveredIndex]?.backgroundColor || 'bg-gray-100';
   };
 
   return (
@@ -92,85 +98,85 @@ const Projects: React.FC = () => {
       </div>
 
       {/* Projects List */}
-    <div className="flex-1 flex items-center px-6 md:px-20 py-20">
+      <div className="flex-1 flex items-center px-6 md:px-20 py-20">
         <div className="w-full">
-            {projects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <div key={project.id}>
-                {/* Project Row (relative for absolute separator) */}
-                <div
+              {/* Project Row (relative for absolute separator) */}
+              <div
                 className="relative group w-full py-6 md:py-8 flex items-center justify-between cursor-pointer transition-all duration-300"
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                >
+              >
                 <div className="flex-1 py-6">
-                    {project.detailUrl ? (
+                  {project.detailUrl ? (
                     <Link
-                        href={project.detailUrl}
-                        className="text-3xl md:text-4xl lg:text-7xl font-light text-gray-600 hover:text-black transition-colors duration-300 flex items-center"
+                      href={project.detailUrl}
+                      className="text-3xl md:text-4xl lg:text-7xl font-light text-gray-600 hover:text-black transition-colors duration-300 flex items-center"
                     >
-                        {project.title}
-                        <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      {project.title}
+                      <ArrowUpRight className="w-6 h-6 md:w-8 md:h-8 ml-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </Link>
-                    ) : (
+                  ) : (
                     <div className="flex items-center">
-                        <h3 className="text-3xl md:text-4xl lg:text-7xl font-light text-gray-900">
+                      <h3 className="text-3xl md:text-4xl lg:text-7xl font-light text-gray-900">
                         {project.title}
-                        </h3>
+                      </h3>
                     </div>
-                    )}
+                  )}
                 </div>
                 <div className="text-right">
-                    <span className="text-sm md:text-base text-gray-600 font-light">
+                  <span className="text-sm md:text-base text-gray-600 font-light">
                     {project.type}
-                    </span>
+                  </span>
                 </div>
                 {/* Separator line (visible, part of hover area) */}
-                {index < projects.length - 1 && (
-                    <div className="absolute left-0 bottom-0 w-full border-b border-black" />
+                {index < visibleProjects.length - 1 && (
+                  <div className="absolute left-0 bottom-0 w-full border-b border-black" />
                 )}
-                </div>
+              </div>
             </div>
-            ))}
+          ))}
         </div>
-    </div>
+      </div>
 
       {/* Floating Image Strip */}
       {hoveredIndex !== null && (
         <motion.div
-            className="absolute pointer-events-none w-80 h-80 overflow-hidden rounded-lg shadow-lg hidden md:block"
-            initial={{
+          className="absolute pointer-events-none w-80 h-80 overflow-hidden rounded-lg shadow-lg hidden md:block"
+          initial={{
             top: mousePosition.y,
             left: mousePosition.x
-            }}
-            animate={{
+          }}
+          animate={{
             top: mousePosition.y,
             left: mousePosition.x
-            }}
-            transition={{
+          }}
+          transition={{
             type: "spring",
             ...smoothOptions
-            }}
-            style={{
+          }}
+          style={{
             transform: 'translate(-50%, -50%)'
-            }}
+          }}
         >
-            <motion.div
+          <motion.div
             animate={{ y: -hoveredIndex * 320 }}
             transition={{ duration: 0.4, ease: "easeInOut" }}
-            >
-            {projects.map((p) => (
-                <Image
+          >
+            {visibleProjects.map((p) => (
+              <Image
                 key={p.id}
                 src={p.image}
                 alt={p.title}
                 width={320}
                 height={320}
                 className="w-80 h-80 object-cover"
-                />
+              />
             ))}
-            </motion.div>
+          </motion.div>
         </motion.div>
-        )}
+      )}
     </section>
   );
 };
