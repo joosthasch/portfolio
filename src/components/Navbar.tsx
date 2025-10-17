@@ -5,17 +5,17 @@ import Link from "next/link";
 export function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full p-4 pt-16 z-15">
-      <ul className="container mx-auto flex justify-between items-center">
+      <ul className="container mx-auto flex justify-between items-center font-montserrat">
         <li>
           <Link
             href="/"
-            className="flex items-center text-xl sm:text-3xl text-gray-900"
+            className="flex items-center text-xl sm:text-3xl text-black"
           >
             Joost
           </Link>
         </li>
         <li>
-          <ul className="flex space-x-6 sm:text-3xl text-gray-900">
+          <ul className="flex space-x-6 sm:text-3xl text-black">
             <li>
               <Link
                 href="/about"

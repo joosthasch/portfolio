@@ -3,6 +3,7 @@ import { Navbar } from "../Navbar";
 import { StickyCursor } from "../StickyCursor";
 import { AnimatedChar } from "./AnimatedChar";
 import { ArrowDownRight } from "lucide-react";
+import { ScrollVideoHero } from "../ScrollVideoHero";
 
 
 export function ScrollSection({
@@ -27,25 +28,43 @@ export function ScrollSection({
 
   // Define separate lines of text
   const lines = React.useMemo(
-    () => ["MEDIA &", "INTERACTION", "DESIGNER"],
-    []
-  );
+  () => [
+    [
+      { text: "Developer", color: "text-black", font: "font-montserrat"  }, 
+      { text: " &", color: "text-black", font: "font-montserrat" }
+    ],
+    [
+      { text: "Designer", color: "text-black", font: "font-arizonia"  },
+      { text: " aus", color: "text-black", font: "font-montserrat"  }
+    ],
+    [
+      { text: "Osnabrück", color: "text-black" , font: "font-montserrat" }
+    ]
+  ],
+  []
+);
 
   // Pre-generate random offsets & rotations for each character
   const offsets = React.useMemo(
-    () =>
-      lines.map((line) =>
-        Array.from(line).map(() => (Math.random() * 2 - 1) * maxOffset)
-      ),
-    [lines, maxOffset]
-  );
-  const rotations = React.useMemo(
-    () =>
-      lines.map((line) =>
-        Array.from(line).map(() => (Math.random() * 2 - 1) * maxRotate)
-      ),
-    [lines, maxRotate]
-  );
+  () =>
+    lines.map((line) =>
+      line.flatMap((wordObj) =>
+        Array.from(wordObj.text).map(() => (Math.random() * 2 - 1) * maxOffset)
+      )
+    ),
+  [lines, maxOffset]
+);
+
+const rotations = React.useMemo(
+  () =>
+    lines.map((line) =>
+      line.flatMap((wordObj) =>
+        Array.from(wordObj.text).map(() => (Math.random() * 2 - 1) * maxRotate)
+      )
+    ),
+  [lines, maxRotate]
+);
+
 
   // Spring config for smooth easing
   const springConfig = { damping: 30, stiffness: 150 };
@@ -54,13 +73,13 @@ export function ScrollSection({
     <section
       className={`
         relative
-        h-[150vh] overflow-hidden
-        bg-[#c8c4bb]
-        font-archivo
+        h-[230vh] overflow-hidden
+        bg-white
       `}
     >
       {/* Navbar and Cursor */}
       <Navbar />
+      <ScrollVideoHero />
       <StickyCursor isHovered={isHovered} />
 
       {/* Sticky block anchors bottom-left while in viewport */}
@@ -69,17 +88,25 @@ export function ScrollSection({
         <div className="container mx-auto flex flex-col justify-end pb-16 space-y-4 pl-6 lg:pl-0">
           {lines.map((line, lineIdx) => (
             <div key={lineIdx}>
-              {Array.from(line).map((char, i) => (
-                <AnimatedChar
-                  key={i}
-                  char={char}
-                  offset={offsets[lineIdx][i]}
-                  rotation={rotations[lineIdx][i]}
-                  scrollRange={scrollRange}
-                  springConfig={springConfig}
-                  onHover={setIsHovered}
-                />
-              ))}
+              {line.flatMap((wordObj, wordIdx) =>
+                Array.from(wordObj.text).map((char, i) => {
+                  // globaler Zeichenindex
+                  const charIdx = 
+                    line.slice(0, wordIdx).reduce((acc, w) => acc + w.text.length, 0) + i;
+                  return (
+                    <AnimatedChar
+                      key={charIdx}
+                      char={char}
+                      offset={offsets[lineIdx][charIdx]}
+                      rotation={rotations[lineIdx][charIdx]}
+                      scrollRange={scrollRange}
+                      springConfig={springConfig}
+                      onHover={setIsHovered}
+                      className={`${wordObj.color} ${wordObj.font}`}
+                    />
+                  );
+                })
+              )}
             </div>
           ))}
         </div>
@@ -90,8 +117,8 @@ export function ScrollSection({
         <div className="hidden sm:block fixed bottom-0 w-full pointer-events-none">
           <div className="container mx-auto flex justify-end items-end
            pb-16 pointer-events-auto">
-              <span className="sm:text-2xl lg:text-4xl tracking-wider text-gray-900">Scroll</span>
-              <ArrowDownRight className="sm:pt-2 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-gray-900" />
+              <span className="sm:text-2xl lg:text-4xl tracking-wider text-black font-montserrat">Scroll</span>
+              <ArrowDownRight className="sm:pt-2 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-black" />
           </div>
         </div>
       )}

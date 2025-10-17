@@ -10,7 +10,9 @@ interface AnimatedCharProps {
   scrollRange: number;
   springConfig: { damping: number; stiffness: number };
   onHover: (isHovered: boolean) => void;
+  className?: string; // NEU
 }
+
 
 export function AnimatedChar({
   char,
@@ -19,6 +21,7 @@ export function AnimatedChar({
   scrollRange,
   springConfig,
   onHover,
+  className = "",
 }: AnimatedCharProps) {
   const { scrollY } = useScroll();
 
@@ -35,7 +38,7 @@ export function AnimatedChar({
       style={{ y, rotate }}
       onMouseEnter={() => onHover(true)}
       onMouseLeave={() => onHover(false)}
-      className="inline-block px-4 -mx-2 text-2xl sm:text-6xl md:text-6xl lg:text-[9rem] font-extrabold font-archivo text-gray-900"
+      className={`inline-block px-4 -mx-2 text-2xl sm:text-6xl md:text-6xl lg:text-[8rem] font-black ${className}`} // className kommt rein!
     >
       {displayChar}
     </motion.span>

@@ -91,7 +91,7 @@ const Projects: React.FC = () => {
       {/* Header */}
       <div className="pt-20 pb-8 px-6 md:px-20">
         <div className="w-full">
-          <h2 className="text-4xl md:text-7xl lg:text-9xl font-light text-gray-900">
+          <h2 className="text-4xl md:text-7xl lg:text-9xl font-montserrat font-bold text-gray-900">
             Projekte
           </h2>
         </div>
@@ -143,7 +143,7 @@ const Projects: React.FC = () => {
       {/* Floating Image Strip */}
       {hoveredIndex !== null && (
         <motion.div
-          className="absolute pointer-events-none w-80 h-80 overflow-hidden rounded-lg shadow-lg hidden md:block"
+          className="absolute pointer-events-none w-80 h-80 overflow-hidden rounded-3xl shadow-lg hidden md:block"
           initial={{
             top: mousePosition.y,
             left: mousePosition.x
