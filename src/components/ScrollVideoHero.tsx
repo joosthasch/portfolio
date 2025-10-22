@@ -15,6 +15,14 @@ export function ScrollVideoHero() {
     if (!video || !container) return;
 
     const ctx = gsap.context(() => {
+      // Responsive initial scale: größer auf Mobile, kleiner auf Desktop
+      const isMobile = window.innerWidth < 768;
+      const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+      
+      let startScale = 0.3; // Desktop default
+      if (isMobile) startScale = 0.6; // Mobile: 60%
+      else if (isTablet) startScale = 0.45; // Tablet: 45%
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: container,
@@ -31,7 +39,7 @@ export function ScrollVideoHero() {
 
       tl.fromTo(
         video,
-        { scale: 0.3, yPercent: -30 },
+        { scale: startScale, yPercent: -30 },
         { scale: 1, yPercent: 0, ease: "none" }
       );
     }, container);
@@ -46,7 +54,7 @@ export function ScrollVideoHero() {
       const x = (e.clientX - videoCenterX) / (videoRect.width / 2);
       const y = (e.clientY - videoCenterY) / (videoRect.height / 2);
 
-      // Influence decreases as scroll progresses (1 → 0)
+      // Influence: starts at 0.2 (20% strength), decreases to 0 as you scroll
       const influence = (1 - progressRef.current) * 0.2;
 
       gsap.to(video, {
@@ -70,7 +78,7 @@ export function ScrollVideoHero() {
   return (
     <section
       ref={containerRef}
-      className="relative mx-w-7xl mx-10 h-[200vh] bg-transparent flex items-center justify-center z-30 overflow-hidden"
+      className="relative max-w-7xl mx-auto h-[200vh] bg-transparent flex items-center justify-center z-30 overflow-hidden"
     >
       <video
         ref={videoRef}
@@ -80,6 +88,7 @@ export function ScrollVideoHero() {
         muted
         playsInline
         className="absolute top-0 left-0 w-full h-auto max-h-[80vh] mt-20 xl:mt-40 object-cover rounded-3xl"
+        style={{ zIndex: 30 }}
       />
     </section>
   );

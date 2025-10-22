@@ -1,10 +1,12 @@
 "use client";
 import Image from "next/image";
 import { ReactLenis } from "lenis/react";
+import { Navbar } from "@/components/Navbar";
 
 export default function VanGoghProject() {
     return (
     <ReactLenis root>
+      <Navbar />
       <main className="min-h-screen bg-white text-gray-900 font-fira">
         <section className="max-w-7xl mx-auto py-20">
           {/* Full-width image */}
@@ -35,7 +37,7 @@ export default function VanGoghProject() {
               <p className="text-lg leading-relaxed text-neutral-700">
                 Für das Visiodrom Wuppertal entstand eine immersive VR-Erfahrung, die Besucher:innen in die Gedankenwelt von Vincent van Gogh eintauchen lässt. Mithilfe einer VR-Brille können sie sich mit einer KI unterhalten, die auf den Briefen des Künstlers basiert.
               </p>
-              <p className="mt-16 text-lg md:text-2xl font-semibold italic text-neutral-800">
+              <p className="mt-16 text-lg md:text-2xl font-bold text-neutral-800">
                 – ein poetisches Gespräch zwischen Vergangenheit und digitaler Gegenwart.
               </p>
           </section>

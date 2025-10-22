@@ -4,7 +4,7 @@ import { StickyCursor } from "../StickyCursor";
 import { AnimatedChar } from "./AnimatedChar";
 import { ArrowDownRight } from "lucide-react";
 import { ScrollVideoHero } from "../ScrollVideoHero";
-
+import ProjectSection from "../../pages/ProjectSection";
 
 export function ScrollSection({
   maxOffset = 1500,
@@ -26,71 +26,53 @@ export function ScrollSection({
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Define separate lines of text
   const lines = React.useMemo(
-  () => [
-    [
-      { text: "CREATING", color: "text-black"}
-      
+    () => [
+      [{ text: "CREATING", color: "text-[#141414]" }],
+      [{ text: "INTERACTIVE", color: "text-[#141414]" }],
+      [{ text: "EXPERIENCES", color: "text-[#141414]" }],
     ],
-    [
-      { text: "INTERACTIVE", color: "text-black"}
-    ],
-    [
-      { text: "EXPERIENCES", color: "text-black"}
-    ]
-  ],
-  []
-);
+    []
+  );
 
-  // Pre-generate random offsets & rotations for each character
   const offsets = React.useMemo(
-  () =>
-    lines.map((line) =>
-      line.flatMap((wordObj) =>
-        Array.from(wordObj.text).map(() => (Math.random() * 2 - 1) * maxOffset)
-      )
-    ),
-  [lines, maxOffset]
-);
+    () =>
+      lines.map((line) =>
+        line.flatMap((wordObj) =>
+          Array.from(wordObj.text).map(() => (Math.random() * 2 - 1) * maxOffset)
+        )
+      ),
+    [lines, maxOffset]
+  );
 
-const rotations = React.useMemo(
-  () =>
-    lines.map((line) =>
-      line.flatMap((wordObj) =>
-        Array.from(wordObj.text).map(() => (Math.random() * 2 - 1) * maxRotate)
-      )
-    ),
-  [lines, maxRotate]
-);
+  const rotations = React.useMemo(
+    () =>
+      lines.map((line) =>
+        line.flatMap((wordObj) =>
+          Array.from(wordObj.text).map(() => (Math.random() * 2 - 1) * maxRotate)
+        )
+      ),
+    [lines, maxRotate]
+  );
 
-
-  // Spring config for smooth easing
   const springConfig = { damping: 30, stiffness: 150 };
 
   return (
-    <section
-      className={`
-        relative
-        h-[280vh] overflow-hidden
-        bg-white
-      `}
-    >
-      {/* Navbar and Cursor */}
+    <section className="relative bg-white">
       <Navbar />
-      <ScrollVideoHero />
       <StickyCursor isHovered={isHovered} />
 
-      {/* Sticky block anchors bottom-left while in viewport */}
-      <div className="fixed bottom-0 w-full">
-        
-        <div className="container mx-auto flex flex-col justify-end pb-16 space-y-4 pl-6 lg:pl-0">
+      {/* Video Hero mit Pinning */}
+      <ScrollVideoHero/>
+
+      {/* Text unten links (fixed während Video-Bereich) */}
+      <div className="fixed bottom-0 w-full pointer-events-none z-10">
+        <div className="container mx-auto flex flex-col justify-end pb-16 space-y-4 pl-6 lg:pl-0 pointer-events-auto">
           {lines.map((line, lineIdx) => (
             <div key={lineIdx}>
               {line.flatMap((wordObj, wordIdx) =>
                 Array.from(wordObj.text).map((char, i) => {
-                  // globaler Zeichenindex
-                  const charIdx = 
+                  const charIdx =
                     line.slice(0, wordIdx).reduce((acc, w) => acc + w.text.length, 0) + i;
                   return (
                     <AnimatedChar
@@ -111,16 +93,29 @@ const rotations = React.useMemo(
         </div>
       </div>
 
-      {/* 👉 Scroll indicator in the bottom-right (constrained) */}
+      {/* Scroll indicator */}
       {!scrolled && (
-        <div className="hidden sm:block fixed bottom-0 w-full pointer-events-none">
-          <div className="container mx-auto flex justify-end items-end
-           pb-16 pointer-events-auto">
-              <span className="sm:text-2xl lg:text-4xl tracking-wider text-black font-fira-sans">Scroll</span>
-              <ArrowDownRight className="sm:pt-2 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-black" />
+        <div className="hidden sm:block fixed bottom-0 w-full pointer-events-none z-10">
+          <div className="container mx-auto flex justify-end items-end pb-16 pointer-events-auto">
+            <span className="sm:text-2xl lg:text-4xl tracking-wider text-[#141414] font-fira">
+              Scroll
+            </span>
+            <ArrowDownRight className="sm:pt-2 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#141414]" />
           </div>
         </div>
       )}
+
+      {/* 👉 ProjectSection: negativer Margin zieht sie nach oben, z-index bringt sie nach vorn */}
+      <div className="relative -mt-[calc(100vh-40px)] z-50">
+        {/* 
+          -mt-[calc(100vh-5rem)]: zieht ProjectSection nach oben
+          → 100vh minus 5rem (80px) = Video endet ca. bei 80px über dem "normalen" Ende
+          → 20px Abstand kannst du mit calc(100vh-20px) oder andere Werte anpassen
+          
+          z-50: bringt ProjectSection über Video/Text
+        */}
+        <ProjectSection />
+      </div>
     </section>
   );
 }

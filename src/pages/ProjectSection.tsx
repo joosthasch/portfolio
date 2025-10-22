@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import Image from "next/image";
@@ -11,7 +12,7 @@ const projects = [
     image: "/images/projects/VanGogh_VR_Laptop.png",
     hoverImage: "/images/projects/VanGogh_VR_Laptop.png",
     subtitle:
-      "UNITY, BLEDNER, OPENAI API, META QUEST, VR INTERACTION, SPEECH-TO-TEXT, VR ENVIRONMENT, SPEECH RECOGNITION, UI, UX",
+      "UNITY, BLENDER, OPENAI API, META QUEST, VR INTERACTION, SPEECH-TO-TEXT, VR ENVIRONMENT, SPEECH RECOGNITION, UI, UX",
     icon: "/images/projects/icons/VanGogh_Icon.png",
     path: "/projects/van-gogh",
   },
@@ -33,7 +34,7 @@ const projects = [
     image: "/images/projects/Flunk-E_Flasche_Ball.png",
     hoverImage: "/images/projects/VanGogh_VR_Laptop.png",
     subtitle:
-      "IOT, TYPESCRIPT, ANGULAR, CAPACITOR, BLUETHOOTH, UX, UI, PROTOTYPING, FIGMA, SENSOR DATA, REALTIME-DATA, MOBILE APP",
+      "IOT, TYPESCRIPT, ANGULAR, CAPACITOR, BLUETOOTH, UX, UI, PROTOTYPING, FIGMA, SENSOR DATA, REALTIME-DATA, MOBILE APP",
     icon: "/images/projects/icons/Flunk-E_Icon.png",
     path: "/projects/flunke",
   },
@@ -46,7 +47,7 @@ const projects = [
     subtitle:
       "MATTER.JS, LENIS, VERCEL, ART DIRECTION, VOICE & TONE, UI, UX, ...",
     icon: "/images/projects/flunke.png",
-    path: "/projects/palcehodler",
+    path: "/projects/placeholder",
   },
 ];
 
@@ -59,18 +60,14 @@ function Marquee({ text }: { text: string }) {
     const inner = innerRef.current;
     if (!container || !inner) return;
 
-    // Duplicate text for seamless loop
     const spans = inner.querySelectorAll(".marquee-text");
     if (spans.length < 2) {
       inner.innerHTML = `<span class="marquee-text">${text}</span><span class="marquee-text ml-8">${text}</span>`;
     }
 
-    // Get widths
     const textWidth = (inner.firstChild as HTMLElement)?.offsetWidth ?? 0;
-
-    // Animate with GSAP
     const totalDistance = textWidth;
-    const duration = totalDistance / 30; // adjust speed (30px/sec)
+    const duration = totalDistance / 30;
 
     const tl = gsap.timeline({ repeat: -1 });
     tl.fromTo(
@@ -83,17 +80,16 @@ function Marquee({ text }: { text: string }) {
       }
     );
 
-    // Cleanup
     return () => {
       tl.kill();
     };
   }, [text]);
 
   return (
-    <div ref={containerRef} className="relative w-full overflow-hidden h-6">
+    <div ref={containerRef} className="relative w-full overflow-hidden h-5 sm:h-6">
       <div
         ref={innerRef}
-        className="flex absolute left-0 top-0 whitespace-nowrap text-sm md:text-base text-neutral-400 font-montserrat"
+        className="flex absolute left-0 top-0 whitespace-nowrap text-xs sm:text-sm md:text-base text-neutral-600 font-fira"
         style={{ willChange: "transform" }}
       >
         <span className="marquee-text mr-8">{text}</span>
@@ -103,14 +99,11 @@ function Marquee({ text }: { text: string }) {
   );
 }
 
-// Card component with hover effect
 function ProjectCard({ project }: { project: typeof projects[0] }) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
 
-  // Handle hover animation
   function handleMouseEnter() {
-    // Hauptbild: Zoom & Blur
     if (imgRef.current) {
       gsap.to(imgRef.current, {
         scale: 1.05,
@@ -119,7 +112,6 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
         ease: "power1.out",
       });
     }
-    // Overlay-Bild: Fade/Scale-In
     if (overlayRef.current) {
       gsap.to(overlayRef.current, {
         opacity: 1,
@@ -131,7 +123,6 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
   }
 
   function handleMouseLeave() {
-    // Reset Hauptbild
     if (imgRef.current) {
       gsap.to(imgRef.current, {
         scale: 1,
@@ -140,7 +131,6 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
         ease: "power1.out",
       });
     }
-    // Overlay-Bild Fade/Scale-Out
     if (overlayRef.current) {
       gsap.to(overlayRef.current, {
         opacity: 0,
@@ -158,84 +148,100 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
   }, []);
 
   return (
-  <div
-    className="bg-[#141414] rounded-2xl overflow-hidden shadow-xl flex flex-col relative cursor-pointer px-6"
-    onMouseEnter={handleMouseEnter}
-    onMouseLeave={handleMouseLeave}
-  >
-    {/* Image area */}
-    <div className="flex justify-center items-center pt-5 pb-0 relative" style={{ minHeight: 220 }}>
-      <div className="overflow-hidden rounded-xl w-full h-full">
-        <Image
-          // next/image still ok here if you don't need direct img ref
-          // if you need gsap to target the <img> element, use a plain <img> instead
-          ref={imgRef}
-          src={project.image}
-          alt={project.title}
-          width={500}
-          height={300}
-          className="w-full h-full object-cover transition-all duration-300"
-          style={{ background: "#222" }}
-        />
-      </div>
-
-      {project.hoverImage && (
-        <div
-          ref={overlayRef}
-          className="absolute inset-0 flex items-center justify-center pointer-events-none"
-          style={{ zIndex: 2 }}
-        >
+    <div
+      className="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-xl flex flex-col relative cursor-pointer px-4 sm:px-6"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
+      {/* Image area */}
+      <div className="flex justify-center items-center pt-4 sm:pt-5 pb-0 relative min-h-[180px] sm:min-h-[220px]">
+        <div className="overflow-hidden rounded-lg sm:rounded-xl w-full h-full">
           <Image
-            src={project.hoverImage}
-            alt="Overlay"
-            width={350}
-            height={200}
-            className="w-[70%] rounded-lg shadow-2xl"
-            style={{ background: "#fff" }}
+            ref={imgRef}
+            src={project.image}
+            alt={project.title}
+            width={500}
+            height={300}
+            className="w-full h-full object-cover transition-all duration-300"
+            style={{ background: "#222" }}
           />
         </div>
-      )}
-    </div>
 
-    {/* Info area */}
-    <div className="flex flex-col justify-end flex-1 pb-6 pt-6 w-full bg-[#141414]">
-      <div className="flex items-center justify-between w-full mb-6">
-        <div className="flex items-center gap-4">
-          {project.icon && (
-            <Image src={project.icon} alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full" />
-          )}
-          <span className="text-base uppercase md:text-xl font-semibold text-white font-montserrat">
-            {project.title}
-          </span>
-        </div>
-        <div className="flex items-center gap-4">
-          <span className="text-base md:text-xl font-semibold text-white font-montserrat">
-            {project.title2}
-          </span>
-          <span className="text-base md:text-xl font-semibold text-neutral-400 font-montserrat">
-            {project.year}
-          </span>
-        </div>
+        {project.hoverImage && (
+          <div
+            ref={overlayRef}
+            className="absolute inset-0 flex items-center justify-center pointer-events-none"
+            style={{ zIndex: 2 }}
+          >
+            <Image
+              src={project.hoverImage}
+              alt="Overlay"
+              width={350}
+              height={200}
+              className="w-[70%] rounded-lg shadow-2xl"
+              style={{ background: "#fff" }}
+            />
+          </div>
+        )}
       </div>
-      <Marquee text={project.subtitle} />
+
+      {/* Info area */}
+      <div className="flex flex-col justify-end flex-1 pb-4 sm:pb-6 pt-4 sm:pt-6 w-full bg-white">
+        {/* Mobile: stacked layout, Desktop: side-by-side */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full mb-4 sm:mb-6 gap-3 sm:gap-4">
+          {/* Left side: icon + title */}
+          <div className="flex items-center gap-3 sm:gap-4">
+            {project.icon && (
+              <Image
+                src={project.icon}
+                alt="Avatar"
+                width={40}
+                height={40}
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex-shrink-0"
+              />
+            )}
+            <span className="text-sm sm:text-base md:text-lg lg:text-xl font-medium text-[#141414] font-fira">
+              {project.title}
+            </span>
+          </div>
+
+          {/* Right side: title2 + year */}
+          <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm md:text-base lg:text-xl">
+            <span className="font-medium text-[#141414] font-fira">
+              {project.title2}
+            </span>
+            <span className="font-medium text-neutral-600 font-fira">
+              {project.year}
+            </span>
+          </div>
+        </div>
+
+        <Marquee text={project.subtitle} />
+      </div>
     </div>
-  </div>
-);
+  );
 }
 
 export default function ProjectSection() {
   return (
-    <section className="w-full bg-[#141414] rounded-3xl py-24">
-      <h2 className="text-4xl md:text-9xl font-black uppercase font-montserrat text-white mb-12 text-start px-16 md:px-16">
-        My Work
-      </h2>
+    <section className="w-full bg-[#141414] rounded-t-2xl sm:rounded-t-3xl py-12 sm:py-16 md:py-24">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black italic uppercase font-fira text-white mb-8 sm:mb-16 md:mb-24 text-start px-6 sm:px-10 md:px-12 lg:px-16">
+          My Work
+        </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 px-5 md:px-5 mx-5 pt-5 pb-5 rounded-3xl">
-        {projects.map((project) => (
-          <Link key={project.path} href={project.path} className="block" aria-label={`Open project ${project.title}`}>
-            <ProjectCard project={project} />
-          </Link>
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 px-4 sm:px-5 md:px-5 mx-4 sm:mx-5 pt-4 pb-4 sm:pb-5 rounded-2xl sm:rounded-3xl">
+          {projects.map((project) => (
+            <Link
+              key={project.path}
+              href={project.path}
+              className="block"
+              aria-label={`Open project ${project.title}`}
+            >
+              <ProjectCard project={project} />
+            </Link>
+          ))}
+        </div>
       </div>
     </section>
   );
