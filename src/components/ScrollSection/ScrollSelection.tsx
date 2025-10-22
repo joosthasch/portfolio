@@ -30,15 +30,14 @@ export function ScrollSection({
   const lines = React.useMemo(
   () => [
     [
-      { text: "Developer", color: "text-black", font: "font-montserrat"  }, 
-      { text: " &", color: "text-black", font: "font-montserrat" }
+      { text: "CREATING", color: "text-black"}
+      
     ],
     [
-      { text: "Designer", color: "text-black", font: "font-arizonia"  },
-      { text: " aus", color: "text-black", font: "font-montserrat"  }
+      { text: "INTERACTIVE", color: "text-black"}
     ],
     [
-      { text: "Osnabrück", color: "text-black" , font: "font-montserrat" }
+      { text: "EXPERIENCES", color: "text-black"}
     ]
   ],
   []
@@ -73,7 +72,7 @@ const rotations = React.useMemo(
     <section
       className={`
         relative
-        h-[230vh] overflow-hidden
+        h-[280vh] overflow-hidden
         bg-white
       `}
     >
@@ -102,7 +101,7 @@ const rotations = React.useMemo(
                       scrollRange={scrollRange}
                       springConfig={springConfig}
                       onHover={setIsHovered}
-                      className={`${wordObj.color} ${wordObj.font}`}
+                      className={`${wordObj.color}`}
                     />
                   );
                 })
@@ -117,7 +116,7 @@ const rotations = React.useMemo(
         <div className="hidden sm:block fixed bottom-0 w-full pointer-events-none">
           <div className="container mx-auto flex justify-end items-end
            pb-16 pointer-events-auto">
-              <span className="sm:text-2xl lg:text-4xl tracking-wider text-black font-montserrat">Scroll</span>
+              <span className="sm:text-2xl lg:text-4xl tracking-wider text-black font-fira-sans">Scroll</span>
               <ArrowDownRight className="sm:pt-2 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-black" />
           </div>
         </div>

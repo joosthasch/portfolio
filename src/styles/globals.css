@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arizonia&display=swap');
 @import "tailwindcss";
 
 :root {
@@ -8,15 +7,26 @@
   --foreground: #171717;
 }
 
-@font-face {
-  font-family: 'Title';
-  src: url('../../public/fonts/OTNeglige-L.otf');
-}
-
 @theme {
   --font-archivo: "Archivo", sans-serif;
   --font-montserrat: "Montserrat", sans-serif;
-  --font-arizonia: "Arizonia", cursive;
+  --font-fira: "Fira", sans-serif;
+}
+
+@font-face {
+  font-family: "Fira";
+  src: url("/fonts/FiraSans-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fira";
+  src: url("/fonts/FiraSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @theme inline {

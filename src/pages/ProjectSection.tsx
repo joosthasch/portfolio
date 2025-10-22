@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import gsap from "gsap";
 import Image from "next/image";
+import Link from "next/link";
 
 const projects = [
   {
@@ -9,8 +10,10 @@ const projects = [
     year: "2025",
     image: "/images/projects/VanGogh_VR_Laptop.png",
     hoverImage: "/images/projects/VanGogh_VR_Laptop.png",
-    subtitle: "UNITY, BLEDNER, OPENAI API, META QUEST, VR INTERACTION, SPEECH-TO-TEXT, VR ENVIRONMENT, SPEECH RECOGNITION, UI, UX",
-    icon: "/images/projects/flunke.png",
+    subtitle:
+      "UNITY, BLEDNER, OPENAI API, META QUEST, VR INTERACTION, SPEECH-TO-TEXT, VR ENVIRONMENT, SPEECH RECOGNITION, UI, UX",
+    icon: "/images/projects/icons/VanGogh_Icon.png",
+    path: "/projects/van-gogh",
   },
   {
     title: "Willenbrock",
@@ -18,8 +21,10 @@ const projects = [
     year: "2025",
     image: "/images/projects/Willenbrock_Labor.png",
     hoverImage: "/images/projects/VanGogh_VR_Laptop.png",
-    subtitle: "USABILITY TESTING, USER RESEARCH, DATA ANALYSIS, THINK-ALOUD, INTERFACE OPTIMIZATION, USER FEEDBACK, UI, UX",
+    subtitle:
+      "USABILITY TESTING, USER RESEARCH, DATA ANALYSIS, THINK-ALOUD, INTERFACE OPTIMIZATION, USER FEEDBACK, UI, UX",
     icon: "/images/projects/flunke.png",
+    path: "/projects/willenbrock",
   },
   {
     title: "Flunk-E",
@@ -27,8 +32,10 @@ const projects = [
     year: "2025",
     image: "/images/projects/Flunk-E_Flasche_Ball.png",
     hoverImage: "/images/projects/VanGogh_VR_Laptop.png",
-    subtitle: "IOT, TYPESCRIPT, ANGULAR, CAPACITOR, BLUETHOOTH, UX, UI, PROTOTYPING, FIGMA, SENSOR DATA, REALTIME-DATA, MOBILE APP",
+    subtitle:
+      "IOT, TYPESCRIPT, ANGULAR, CAPACITOR, BLUETHOOTH, UX, UI, PROTOTYPING, FIGMA, SENSOR DATA, REALTIME-DATA, MOBILE APP",
     icon: "/images/projects/icons/Flunk-E_Icon.png",
+    path: "/projects/flunke",
   },
   {
     title: "JAZMIN WONG",
@@ -36,8 +43,10 @@ const projects = [
     year: "2025",
     image: "/images/projects/VanGogh_VR_Laptop.png",
     hoverImage: "/images/projects/VanGogh_VR_Laptop.png",
-    subtitle: "MATTER.JS, LENIS, VERCEL, ART DIRECTION, VOICE & TONE, UI, UX, ...",
+    subtitle:
+      "MATTER.JS, LENIS, VERCEL, ART DIRECTION, VOICE & TONE, UI, UX, ...",
     icon: "/images/projects/flunke.png",
+    path: "/projects/palcehodler",
   },
 ];
 
@@ -149,85 +158,83 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
   }, []);
 
   return (
-    <div
-      className="bg-[#141414] rounded-2xl overflow-hidden shadow-xl flex flex-col relative cursor-pointer"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-    >
-      {/* Image area */}
-      <div className="flex justify-center items-center pt-5 pb-0 px-5 relative" style={{ minHeight: 220 }}>
-        <div className="overflow-hidden rounded-xl">
+  <div
+    className="bg-[#141414] rounded-2xl overflow-hidden shadow-xl flex flex-col relative cursor-pointer px-6"
+    onMouseEnter={handleMouseEnter}
+    onMouseLeave={handleMouseLeave}
+  >
+    {/* Image area */}
+    <div className="flex justify-center items-center pt-5 pb-0 relative" style={{ minHeight: 220 }}>
+      <div className="overflow-hidden rounded-xl w-full h-full">
+        <Image
+          // next/image still ok here if you don't need direct img ref
+          // if you need gsap to target the <img> element, use a plain <img> instead
+          ref={imgRef}
+          src={project.image}
+          alt={project.title}
+          width={500}
+          height={300}
+          className="w-full h-full object-cover transition-all duration-300"
+          style={{ background: "#222" }}
+        />
+      </div>
+
+      {project.hoverImage && (
+        <div
+          ref={overlayRef}
+          className="absolute inset-0 flex items-center justify-center pointer-events-none"
+          style={{ zIndex: 2 }}
+        >
           <Image
-            ref={imgRef}
-            src={project.image}
-            alt={project.title}
-            width={500}
-            height={300}
-            className="w-full h-full object-cover transition-all duration-300"
-            style={{ background: "#222" }}
+            src={project.hoverImage}
+            alt="Overlay"
+            width={350}
+            height={200}
+            className="w-[70%] rounded-lg shadow-2xl"
+            style={{ background: "#fff" }}
           />
         </div>
-        {/* Overlay image, centered and animated */}
-        {project.hoverImage && (
-          <div
-            ref={overlayRef}
-            className="absolute inset-0 flex items-center justify-center pointer-events-none"
-            style={{ zIndex: 2 }}
-          >
-            <Image
-              src={project.hoverImage}
-              alt="Overlay"
-              width={350}
-              height={200}
-              className="w-[70%] rounded-lg shadow-2xl"
-              style={{
-                background: "#fff",
-              }}
-            />
-          </div>
-        )}
-      </div>
-      {/* Info area */}
-      <div className="flex flex-col justify-end flex-1 px-6 pb-6 pt-6 w-full bg-[#141414]">
-        <div className="flex items-center justify-between w-full mb-6">
-          <div className="flex items-center gap-4">
-            {project.icon && (
-              <Image
-                src={project.icon}
-                alt="Avatar"
-                width={40}
-                height={40}
-                className="w-10 h-10 rounded-full"
-              />
-            )}
-            <span className="text-base uppercase md:text-xl font-semibold text-white font-montserrat">
-              {project.title}
-            </span>
-          </div>
-          <div className="flex items-center gap-4">
-            <span className="text-base md:text-xl font-semibold text-white font-montserrat">
-              {project.title2}
-            </span>
-            <span className="text-base md:text-xl font-semibold text-neutral-400 font-montserrat">
-              {project.year}
-            </span>
-          </div>
-        </div>
-        <Marquee text={project.subtitle} />
-      </div>
+      )}
     </div>
-  );
+
+    {/* Info area */}
+    <div className="flex flex-col justify-end flex-1 pb-6 pt-6 w-full bg-[#141414]">
+      <div className="flex items-center justify-between w-full mb-6">
+        <div className="flex items-center gap-4">
+          {project.icon && (
+            <Image src={project.icon} alt="Avatar" width={40} height={40} className="w-10 h-10 rounded-full" />
+          )}
+          <span className="text-base uppercase md:text-xl font-semibold text-white font-montserrat">
+            {project.title}
+          </span>
+        </div>
+        <div className="flex items-center gap-4">
+          <span className="text-base md:text-xl font-semibold text-white font-montserrat">
+            {project.title2}
+          </span>
+          <span className="text-base md:text-xl font-semibold text-neutral-400 font-montserrat">
+            {project.year}
+          </span>
+        </div>
+      </div>
+      <Marquee text={project.subtitle} />
+    </div>
+  </div>
+);
 }
 
 export default function ProjectSection() {
   return (
-    <section className="w-full bg-white py-24">
-      <h2 className="text-4xl md:text-9xl font-black uppercase font-montserrat text-black mb-12 text-start px-10 md:px-10">
+    <section className="w-full bg-[#141414] rounded-3xl py-24">
+      <h2 className="text-4xl md:text-9xl font-black uppercase font-montserrat text-white mb-12 text-start px-16 md:px-16">
         My Work
       </h2>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 px-5 md:px-5 mx-5 pt-5 pb-5 rounded-3xl">
-        {projects.map((project, idx) => (
-          <ProjectCard key={idx} project={project} />
+        {projects.map((project) => (
+          <Link key={project.path} href={project.path} className="block" aria-label={`Open project ${project.title}`}>
+            <ProjectCard project={project} />
+          </Link>
         ))}
       </div>
     </section>

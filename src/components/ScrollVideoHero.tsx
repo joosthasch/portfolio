@@ -39,12 +39,15 @@ export function ScrollVideoHero() {
     const handleMouseMove = (e: MouseEvent) => {
       if (!video || !container) return;
 
-      const rect = container.getBoundingClientRect();
-      const x = (e.clientX - rect.width / 2) / rect.width;
-      const y = (e.clientY - rect.height / 2) / rect.height;
+      const videoRect = video.getBoundingClientRect();
+      const videoCenterX = videoRect.left + videoRect.width / 2;
+      const videoCenterY = videoRect.top + videoRect.height / 2;
+
+      const x = (e.clientX - videoCenterX) / (videoRect.width / 2);
+      const y = (e.clientY - videoCenterY) / (videoRect.height / 2);
 
       // Influence decreases as scroll progresses (1 → 0)
-      const influence = 1 - progressRef.current;
+      const influence = (1 - progressRef.current) * 0.2;
 
       gsap.to(video, {
         x: x * 60 * influence,
@@ -67,7 +70,7 @@ export function ScrollVideoHero() {
   return (
     <section
       ref={containerRef}
-      className="relative h-[200vh] bg-transparent flex items-center justify-center z-30 overflow-hidden"
+      className="relative mx-w-7xl mx-10 h-[200vh] bg-transparent flex items-center justify-center z-30 overflow-hidden"
     >
       <video
         ref={videoRef}
@@ -76,7 +79,7 @@ export function ScrollVideoHero() {
         loop
         muted
         playsInline
-        className="absolute top-0 left-0 w-full h-auto max-h-[80vh] mt-40 object-cover rounded-3xl"
+        className="absolute top-0 left-0 w-full h-auto max-h-[80vh] mt-20 xl:mt-40 object-cover rounded-3xl"
       />
     </section>
   );
