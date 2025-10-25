@@ -35,7 +35,7 @@ export function StickyCursor({ isHovered }: StickyCursorProps) {
 
   return (
     <motion.div
-      className="fixed rounded-full bg-white z-10 pointer-events-none mix-blend-difference sticky-cursor"
+      className="fixed rounded-full bg-white z-50 pointer-events-none mix-blend-difference sticky-cursor"
       style={{
         width: cursorSize,
         height: cursorSize,

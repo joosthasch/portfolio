@@ -6,11 +6,22 @@ import Link from "next/link";
 
 const projects = [
   {
+    title: "Flunk-E",
+    title2: "IoT-App",
+    year: "2025",
+    image: "/images/projects/flunke.png",
+    hoverImage: "/images/projects/flunke_hover.png",
+    subtitle:
+      "IOT, TYPESCRIPT, ANGULAR, CAPACITOR, BLUETOOTH, UX, UI, PROTOTYPING, FIGMA, SENSOR DATA, REALTIME-DATA, MOBILE APP",
+    icon: "/images/projects/icons/Flunk-E_Icon.png",
+    path: "/projects/flunke",
+  },
+  {
     title: "Van Goghs Gedankenwelt",
     title2: "VR ANWENDUNG",
     year: "2025",
     image: "/images/projects/VanGogh_VR_Laptop.png",
-    hoverImage: "/images/projects/VanGogh_VR_Laptop.png",
+    hoverImage: "/images/projects/vangogh_hover.png",
     subtitle:
       "UNITY, BLENDER, OPENAI API, META QUEST, VR INTERACTION, SPEECH-TO-TEXT, VR ENVIRONMENT, SPEECH RECOGNITION, UI, UX",
     icon: "/images/projects/icons/VanGogh_Icon.png",
@@ -21,34 +32,12 @@ const projects = [
     title2: "Usability Untersuchung",
     year: "2025",
     image: "/images/projects/Willenbrock_Labor.png",
-    hoverImage: "/images/projects/VanGogh_VR_Laptop.png",
+    hoverImage: "/images/projects/willenbrock_hover.png",
     subtitle:
       "USABILITY TESTING, USER RESEARCH, DATA ANALYSIS, THINK-ALOUD, INTERFACE OPTIMIZATION, USER FEEDBACK, UI, UX",
-    icon: "/images/projects/flunke.png",
+    icon: "/images/projects/icons/willenbrock.png",
     path: "/projects/willenbrock",
-  },
-  {
-    title: "Flunk-E",
-    title2: "IoT-App",
-    year: "2025",
-    image: "/images/projects/Flunk-E_Flasche_Ball.png",
-    hoverImage: "/images/projects/VanGogh_VR_Laptop.png",
-    subtitle:
-      "IOT, TYPESCRIPT, ANGULAR, CAPACITOR, BLUETOOTH, UX, UI, PROTOTYPING, FIGMA, SENSOR DATA, REALTIME-DATA, MOBILE APP",
-    icon: "/images/projects/icons/Flunk-E_Icon.png",
-    path: "/projects/flunke",
-  },
-  {
-    title: "JAZMIN WONG",
-    title2: "PORTFOLIO",
-    year: "2025",
-    image: "/images/projects/VanGogh_VR_Laptop.png",
-    hoverImage: "/images/projects/VanGogh_VR_Laptop.png",
-    subtitle:
-      "MATTER.JS, LENIS, VERCEL, ART DIRECTION, VOICE & TONE, UI, UX, ...",
-    icon: "/images/projects/flunke.png",
-    path: "/projects/placeholder",
-  },
+  }
 ];
 
 function Marquee({ text }: { text: string }) {
@@ -89,7 +78,7 @@ function Marquee({ text }: { text: string }) {
     <div ref={containerRef} className="relative w-full overflow-hidden h-5 sm:h-6">
       <div
         ref={innerRef}
-        className="flex absolute left-0 top-0 whitespace-nowrap text-xs sm:text-sm md:text-base text-neutral-600 font-fira"
+        className="flex absolute left-0 top-0 whitespace-nowrap text-xs sm:text-sm md:text-base text-zinc-400 font-fira"
         style={{ willChange: "transform" }}
       >
         <span className="marquee-text mr-8">{text}</span>
@@ -149,7 +138,7 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
 
   return (
     <div
-      className="bg-white rounded-xl sm:rounded-2xl overflow-hidden shadow-xl flex flex-col relative cursor-pointer px-4 sm:px-6"
+      className="bg-[#141414] rounded-xl sm:rounded-2xl overflow-hidden shadow-xl flex flex-col relative cursor-pointer px-4 sm:px-6"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -186,7 +175,7 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
       </div>
 
       {/* Info area */}
-      <div className="flex flex-col justify-end flex-1 pb-4 sm:pb-6 pt-4 sm:pt-6 w-full bg-white">
+      <div className="flex flex-col justify-end flex-1 pb-4 sm:pb-6 pt-4 sm:pt-6 w-full bg-[#141414]">
         {/* Mobile: stacked layout, Desktop: side-by-side */}
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between w-full mb-4 sm:mb-6 gap-3 sm:gap-4">
           {/* Left side: icon + title */}
@@ -200,17 +189,17 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
                 className="w-8 h-8 sm:w-10 sm:h-10 rounded-full flex-shrink-0"
               />
             )}
-            <span className="text-sm sm:text-base md:text-lg lg:text-xl font-medium text-[#141414] font-fira">
+            <span className="text-sm sm:text-base md:text-lg lg:text-xl font-medium text-white font-fira">
               {project.title}
             </span>
           </div>
 
           {/* Right side: title2 + year */}
           <div className="flex items-center gap-2 sm:gap-4 text-xs sm:text-sm md:text-base lg:text-xl">
-            <span className="font-medium text-[#141414] font-fira">
+            <span className="font-medium text-white font-fira">
               {project.title2}
             </span>
-            <span className="font-medium text-neutral-600 font-fira">
+            <span className="font-medium text-zinc-400 font-fira">
               {project.year}
             </span>
           </div>
@@ -224,10 +213,10 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
 
 export default function ProjectSection() {
   return (
-    <section className="w-full bg-[#141414] rounded-t-2xl sm:rounded-t-3xl py-12 sm:py-16 md:py-24">
+    <section id="projects" className="w-full bg-white rounded-t-2xl sm:rounded-t-3xl pb-40">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black italic uppercase font-fira text-white mb-8 sm:mb-16 md:mb-24 text-start px-6 sm:px-10 md:px-12 lg:px-16">
-          My Work
+        <h2 className="text-3xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black italic uppercase font-fira text-[#141414] mb-8 sm:mb-12 md:mb-16 px-4 sm:px-5 md:px-5 mx-4 sm:mx-5 text-start">
+          PROJEKTE
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 px-4 sm:px-5 md:px-5 mx-4 sm:mx-5 pt-4 pb-4 sm:pb-5 rounded-2xl sm:rounded-3xl">

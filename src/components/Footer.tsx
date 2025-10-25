@@ -1,12 +1,12 @@
 "use client";
 import Link from "next/link";
-import { Mail, Linkedin, Github, Instagram } from "lucide-react";
+import { Mail } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative w-full bg-[#141414] text-white z-30">
+    <footer className="relative w-full bg-[#141414] text-white z-50">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 md:px-12 lg:px-16 py-12 md:py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 mb-8">
@@ -33,22 +33,16 @@ export default function Footer() {
                 Home
               </Link>
               <Link
-                href="/about"
+                href="/#about"
                 className="text-sm md:text-base text-gray-400 hover:text-white transition-colors duration-200 font-fira"
               >
                 Über mich
               </Link>
               <Link
-                href="/projects"
+                href="/#projects"
                 className="text-sm md:text-base text-gray-400 hover:text-white transition-colors duration-200 font-fira"
               >
                 Projekte
-              </Link>
-              <Link
-                href="/contact"
-                className="text-sm md:text-base text-gray-400 hover:text-white transition-colors duration-200 font-fira"
-              >
-                Kontakt
               </Link>
             </nav>
           </div>
@@ -64,39 +58,8 @@ export default function Footer() {
                 className="flex items-center gap-2 text-sm md:text-base text-gray-400 hover:text-white transition-colors duration-200 font-fira"
               >
                 <Mail className="w-5 h-5" />
-                joost.haschen@example.com
+                joost.haschen@web.de
               </a>
-
-              {/* Social Links */}
-              <div className="flex gap-4 pt-2">
-                <a
-                  href="https://linkedin.com/in/joosthaschen"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="w-6 h-6" />
-                </a>
-                <a
-                  href="https://github.com/joosthasch"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                  aria-label="GitHub"
-                >
-                  <Github className="w-6 h-6" />
-                </a>
-                <a
-                  href="https://instagram.com/joosthaschen"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors duration-200"
-                  aria-label="Instagram"
-                >
-                  <Instagram className="w-6 h-6" />
-                </a>
-              </div>
             </div>
           </div>
         </div>
@@ -122,12 +85,6 @@ export default function Footer() {
               className="hover:text-white transition-colors duration-200"
             >
               Datenschutz
-            </Link>
-            <Link
-              href="/agb"
-              className="hover:text-white transition-colors duration-200"
-            >
-              AGB
             </Link>
           </div>
         </div>

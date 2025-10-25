@@ -1,119 +1,162 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { Navbar } from "@/components/Navbar";
 import { ReactLenis } from "lenis/react";
-import { X } from "lucide-react";
+import { motion } from "framer-motion";
+import Footer from "@/components/Footer";
 
 export default function Willenbrock() {
+  const lenisOptions = {
+    duration: 0.5,
+    easing: (t: number) => 1 - Math.pow(1 - t, 3),
+    smoothWheel: true,
+    wheelMultiplier: 1.2,
+    smoothTouch: false,
+    touchMultiplier: 1.0,
+  };
   return (
-    <ReactLenis root>
-      <main className="min-h-screen bg-white text-gray-900 font-archivo pb-40">
-        {/* Header with title and close button */}
-        <header className="flex justify-between items-start py-4 md:py-6 max-w-7xl mx-auto">
-          <div className="px-6">
-            <h1 className="text-lg leading-relaxed text-gray-900">
-              Willenbrock
-            </h1>
-            <p className="text-lg font-thin text-gray-700">
-              Usabilty Untersuchung
-            </p>
-          </div>
-
-          <Link
-            href="/"
-            className="px-6 text-gray-900 hover:text-gray-600 transition-colors duration-200"
-          >
-            <X className="w-10 h-10" />
-          </Link>
-        </header>
-
-        <section className="max-w-7xl mx-auto">
-          {/* Full-width image */}
-          <div className="w-full px-6 sm:px-12 pb-16">
+    <ReactLenis options={lenisOptions} root>
+      <Navbar />
+      <main className="min-h-screen bg-white text-gray-900 font-fira">
+        <section className="max-w-7xl mx-auto pt-40 pb-16 sm:pb-24 md:pb-32">
+          {/* Header Image */}
+          <div className="relative rounded-2xl overflow-hidden mx-20">
             <Image
-              src="/images/projects/willenbrock/labor2.png"
+              src="/images/projects/willenbrock/Header.png"
               alt="Willenbrock Project"
               width={1920}
               height={800}
               className="w-full h-auto rounded-2xl"
               priority
             />
-          </div>
-
-          {/* Centered text content */}
-          <div className="flex justify-center px-6 pb-20">
-            <div className="max-w-3xl">
-              <p className="text-lg leading-relaxed text-gray-700">
-                Projektbeschreibung
-              </p>
-              <p className="text-lg leading-relaxed font-thin text-gray-700 mt-6">
-                Für den Weinshop von Willenbrock haben wir eine Usability-Untersuchung durchgeführt. 
-                Dafür luden wir Testpersonen ins Usability-Labor der Hochschule ein und ließen sie ein typisches 
-                Nutzungsszenario – vom Stöbern bis zum Kaufabschluss – durchspielen. Mithilfe von Eye-Tracking 
-                und begleitenden Beobachtungen konnten wir zentrale Probleme der Website identifizieren und 
-                konkrete Verbesserungsvorschläge ableiten, um die Nutzererfahrung zu optimieren und 
-                Kaufabbrüche zu reduzieren.
-              </p>
-            </div>
-          </div>
-
-          {/* Eckdaten Übersicht nebeneinander */}
-          <div className="flex justify-center px-6 py-20">
-            <div className="max-w-3xl w-full">
-              <h2 className="text-lg leading-relaxed mb-6 text-gray-900">Eckdaten</h2>
-              <div className="flex flex-wrap flex-row gap-6 md:gap-8 justify-between">
-                <div className="flex flex-col flex-1 min-w-[100px]">
-                  <span className="text-base md:text-lg font-light text-gray-700">Projektdauer</span>
-                  <span className="text-base md:text-lg font-thin text-gray-700 pt-2">ca. 4 Wochen</span>
-                </div>
-                <div className="flex flex-col flex-1 min-w-[100px]">
-                  <span className="text-base md:text-lg font-light text-gray-700">Teamgröße</span>
-                  <span className="text-base md:text-lg font-thin text-gray-700 pt-2">4 Personen</span>
-                </div>
-                <div className="flex flex-col flex-1 min-w-[100px]">
-                  <span className="text-base md:text-lg font-light text-gray-700">Methoden</span>
-                  <span className="text-base md:text-lg font-thin text-gray-700 pt-2">Usability-Test</span>
-                  <span className="text-base md:text-lg font-thin text-gray-700 pt-2">Eye-Tracking</span>
-                  <span className="text-base md:text-lg font-thin text-gray-700 pt-2">Interview</span>
-                </div>
-                <div className="flex flex-col flex-1 min-w-[100px]">
-                  <span className="text-base md:text-lg font-light text-gray-700">Meine Rolle</span>
-                  <span className="text-base md:text-lg font-thin text-gray-700 pt-2">Technischer Aufbau & Durchführung im Usability-Labor</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Full-width image */}
-          <div className="w-full px-6 sm:px-12 py-20">
-            <video
-              className="w-full h-auto rounded-2xl"
-              autoPlay
-              loop
-              muted
-              playsInline
-            >
-              <source src="/videos/willenbrock/eyetracking.mp4" type="video/mp4" />
-              Dein Browser unterstützt das Video-Tag nicht.
-            </video>
-          </div>
-
-          {/* Centered text content */}
-          <div className="flex justify-center px-6 pb-20">
-            <div className="max-w-3xl">
-              <p className="text-lg leading-relaxed text-gray-700">
-                Eyetracking-Einblick
-              </p>
-              <p className="text-lg leading-relaxed font-thin text-gray-700 mt-6">
-                Das aufgezeichnete Eye-Tracking-Video macht eine der zentralen Hürden 
-                sichtbar: Nutzer*innen konnten in der ursprünglichen Shop-Ansicht nur 
-                eine einzelne Flasche in den Warenkorb legen, was wiederholt zu Irritationen führte.
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute bottom-10 left-10 md:left-16 text-white">
+              <h1 className="text-3xl md:text-6xl font-bold mb-2">
+                Willenbrock
+              </h1>
+              <p className="text-lg md:text-2xl font-medium opacity-90">
+                Usability Untersuchung
               </p>
             </div>
           </div>
         </section>
+
+        {/* DESCRIPTION */}
+        <section className="max-w-7xl mx-auto text-center px-6 md:px-12 lg:px-20">
+          <p className="text-base sm:text-lg md:text-xl leading-relaxed text-neutral-700">
+           Für den Weinshop Willenbrock haben wir eine umfassende Usability-Untersuchung durchgeführt.
+            Mithilfe von Eye-Tracking, Nutzungsszenarien und Interviews haben wir das Verhalten der Nutzer:innen analysiert und Schwachstellen identifiziert.
+            Auf Basis der Erkenntnisse haben wir gezielte Optimierungen entwickelt, die die User Experience verbessern, typische Probleme lösen und die Navigation intuitiver machen.
+          </p>
+        </section>
+
+        {/* CONTENT SECTIONS */}
+        <section className="bg-[#141414] mt-32 py-16 sm:py-24 md:py-32 rounded-t-2xl sm:rounded-t-3xl">
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 space-y-16 md:space-y-24">
+
+            {/* 1. Image Left / Text Right */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
+            >
+              <div className="relative aspect-[16/11] overflow-hidden rounded-2xl max-h-[600px] mx-auto lg:mx-0">
+                <Image
+                  src="/images/projects/willenbrock/labor.jpg"
+                  alt="AI Conversation"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              <div className="space-y-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                  Nutzer:innen im Fokus
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                  Mit Kameras und Bildschirm konnten wir die Teilnehmer:innen während des Tests direkt beobachten – welche Produkte sie ansahen, wo sie zögerten und wie sie sich durch den Shop bewegten.
+                  Durch lautes Denken teilten die Nutzer:innen ihre Gedanken in Echtzeit, was wertvolle Einblicke in Motivation, Verständnis und Probleme lieferte.
+                </p>
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                  Diese Beobachtungen bildeten die Grundlage für gezielte Optimierungen, die den Einkauf intuitiver und angenehmer machen
+                </p>
+              </div>
+            </motion.div>
+
+            {/* 2. Wide Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="relative aspect-video overflow-hidden max-w-5xl mx-auto"
+            >
+              <Image
+                src="/images/projects/willenbrock/ablauf.png"
+                alt="Full VR Experience"
+                fill
+                className="object-cover rounded-2xl "
+              />
+            </motion.div>
+
+            {/* 4. Text Left / Image Right */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
+            >
+              <div className="space-y-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                  Eyetracking – Nutzerverhalten sichtbar machen
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                  Mit Eyetracking konnten wir genau nachvollziehen, wohin die Testpersonen auf der Website 
+                  blickten und wie sie sich durch den Shop bewegten. So wurden Momente der Unsicherheit oder Orientierungslosigkeit direkt sichtbar.
+                </p>
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                  Ein Blick auf die Blickverläufe zeigte, dass die Teilnehmenden bei der Mengenauswahl ins Stocken gerieten. Statt mehrere Flaschen auswählen 
+                  zu können, standen nur „0“ oder „1“ zur Verfügung – ein Detail, das für Verwirrung sorgte und die Frage aufwarf, ob der Wein eventuell ausverkauft sei.
+                </p>
+              </div>
+
+              <div className="relative aspect-[9/16] overflow-hidden rounded-2xl max-h-[600px] w-full max-w-sm mx-auto lg:ml-auto lg:mr-0">
+                <Image
+                  src="/images/projects/willenbrock/weinshop.png"
+                  alt="AI Conversation"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </motion.div>
+
+            {/* 5. Full-width Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="relative aspect-video overflow-hidden"
+            >
+              <video
+                  src="/videos/willenbrock/eyetracking.mp4"      /* Pfad anpassen */
+                  className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="VR Environment video"
+                />
+            </motion.div>
+          </div>
+        </section>
       </main>
+      <Footer />
     </ReactLenis>
   );
 }

@@ -5,6 +5,8 @@ import { AnimatedChar } from "./AnimatedChar";
 import { ArrowDownRight } from "lucide-react";
 import { ScrollVideoHero } from "../ScrollVideoHero";
 import ProjectSection from "../../pages/ProjectSection";
+import AboutSection from "@/pages/AboutSection";
+import LogoScroller from "../LogoScroller";
 
 export function ScrollSection({
   maxOffset = 1500,
@@ -97,7 +99,7 @@ export function ScrollSection({
       {!scrolled && (
         <div className="hidden sm:block fixed bottom-0 w-full pointer-events-none z-10">
           <div className="container mx-auto flex justify-end items-end pb-16 pointer-events-auto">
-            <span className="sm:text-2xl lg:text-4xl tracking-wider text-[#141414] font-fira">
+            <span className="sm:text-2xl lg:text-3xl tracking-wider font-black italic text-[#141414] font-fira">
               Scroll
             </span>
             <ArrowDownRight className="sm:pt-2 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-[#141414]" />
@@ -114,6 +116,8 @@ export function ScrollSection({
           
           z-50: bringt ProjectSection über Video/Text
         */}
+        <AboutSection />
+        <LogoScroller />
         <ProjectSection />
       </div>
     </section>

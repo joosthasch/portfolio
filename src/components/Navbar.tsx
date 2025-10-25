@@ -1,6 +1,10 @@
 "use client";
 import Link from "next/link";
 
+const email = "joost.hasch@web.de";
+
+const mailtoHref = `mailto:${encodeURIComponent(email)}`;
+
 const linkHoverClass = `
   relative inline-block
   transition-transform duration-300 ease
@@ -18,29 +22,31 @@ const linkHoverClass = `
 
 export function Navbar() {
   return (
-    <nav className="absolute top-0 left-0 w-full p-4 pt-5 z-50 bg-white">
-      <ul className="flex max-w-7xl mx-auto text-lg sm:text-xl text-[#141414] font-fira">
-        <li className="flex-1 flex justify-center font-bold items-center">
+    <nav className="absolute top-0 left-0 w-full p-4 pt-5 z-40 bg-white">
+      <ul className="flex max-w-7xl mx-auto text-lg sm:text-xl text-[#141414] font-black uppercase font-fira">
+        <li className="flex-1 flex justify-center text-xl sm:text-3xl italic items-center">
           <Link href="/" className={linkHoverClass}>
-            Joost
+            Joost Haschen
           </Link>
         </li>
         <li className="flex-1 flex justify-center items-center">
-          <Link href="/about" className={linkHoverClass}>
+          <Link href="/#about" className={linkHoverClass}>
             Über mich
           </Link>
         </li>
         <li className="flex-1 flex justify-center items-center">
-          <Link href="/projects" className={linkHoverClass}>
+          <Link href="/#projects" className={linkHoverClass}>
             Projekte
           </Link>
         </li>
         <li className="flex-1 flex justify-center items-center">
-          <Link href="/contact">
-            <div className="bg-[#141414] text-white rounded-full font-fira font-regular px-6 py-2">
-              Kontakt
-            </div>
-          </Link>
+          <a
+                href={mailtoHref}
+                className="inline-block px-6 py-2 bg-[#141414] text-white font-bold rounded-full hover:bg-[#292929] transition-colors duration-300 font-fira"
+                aria-label={`E-Mail an ${email} senden`}
+              >
+                Kontakt
+              </a>
         </li>
       </ul>
     </nav>

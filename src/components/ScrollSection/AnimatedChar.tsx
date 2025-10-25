@@ -38,7 +38,7 @@ export function AnimatedChar({
       style={{ y, rotate }}
       onMouseEnter={() => onHover(true)}
       onMouseLeave={() => onHover(false)}
-      className={`inline-block px-4 -mx-2 text-2xl sm:text-4xl md:text-6xl lg:text-[8rem] xl:[8rem] font-fira font-bold italic ${className}`} // className kommt rein!
+      className={`inline-block px-4 -mx-2 text-2xl sm:text-4xl md:text-6xl lg:text-[6rem] xl:[8rem] font-fira font-bold italic ${className}`} // className kommt rein!
     >
       {displayChar}
     </motion.span>
