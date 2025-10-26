@@ -45,7 +45,7 @@ export default function VanGoghProject() {
           <section className="max-w-7xl mx-auto sm:text-center px-6 md:px-12 lg:px-20">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-neutral-700">
               Ein Ball. Zwei Teams. Unendlich viel Spannung.
-              Flunk·E verwandelt Flunkyball in ein interaktives Spielerlebnis – mit Sensor, Echtzeit-Feedback und App-Anbindung.
+              Flunk-E verwandelt Flunkyball in ein interaktives Spielerlebnis – mit Sensor, Echtzeit-Feedback und App-Anbindung.
               Wer trifft, löst digitale Effekte und neue Regeln aus.
               So wird aus jeder Runde ein Wettkampf zwischen Skill, Glück und Chaos.
             </p>

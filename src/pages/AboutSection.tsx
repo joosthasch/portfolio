@@ -42,40 +42,28 @@ export default function AboutSection() {
                 <span className="text-white font-semibold">
                   Media & Interaction Design
                 </span>{" "}
-                an der Hochschule Osnabrück im fünften Semester. Zwischen Design,
-                Technologie und Storytelling finde ich meinen kreativen Raum.
+                an der Hochschule Osnabrück im fünften Semester. Mein Schwerpunkt liegt auf
+                der Gestaltung digitaler Anwendungen an der Schnittstelle zwischen Design und
+                Technologie.
               </p>
 
               <p>
-                Ich achte auf jedes Detail, weil ich glaube, dass gutes Design im
-                Kleinen beginnt. Mein Ziel ist es,{" "}
+                Mich interessiert, wie durchdachtes Design komplexe Inhalte verständlich und
+                zugänglich machen kann.{" "}
                 <span className="text-white font-semibold">
-                  digitale Erlebnisse zu schaffen, die intuitiv, zugänglich und
-                  bedeutungsvoll sind
+                  Klare Strukturen, intuitive Interaktionen und visuelle Präzision
                 </span>{" "}
-                – mit Charakter, Haltung und Herz.
+                sind für mich die Grundlage einer überzeugenden Nutzererfahrung.
               </p>
 
               <p>
-                Ich liebe es, Ideen in erlebbare Anwendungen zu übersetzen – vom
-                Scribble zum Prototypen in Figma bis zur fertigen App mit React.
-                Dabei lege ich Wert auf{" "}
+               Ich arbeite gern an Projekten, die {" "}
                 <span className="text-white font-semibold">
-                  visuelle Klarheit, Persönlichkeit und eine starke, konsistente
-                  Nutzererfahrung.
-                </span>
-              </p>
-            </div>
+                  Gestaltung und Technologien verbinden
+                </span>{" "}
+                – vom ersten Scribble über Prototypen in Figma bis zur Umsetzung in React.
 
-            {/* CTA Button: öffnet Mail-Client via mailto */}
-            <div className="pt-4">
-              <a
-                href={mailtoHref}
-                className="inline-block px-6 py-2 bg-white text-[#141414] font-bold rounded-full hover:bg-gray-200 transition-colors duration-300 font-fira"
-                aria-label={`E-Mail an ${email} senden`}
-              >
-                Lass uns sprechen
-              </a>
+              </p>
             </div>
           </motion.div>
 
