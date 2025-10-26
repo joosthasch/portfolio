@@ -14,14 +14,18 @@ export function ScrollVideoHero() {
     const container = containerRef.current;
     if (!video || !container) return;
 
+    const isMobile = window.innerWidth < 768;
+    const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
+
+    // Disable ScrollTrigger animation on mobile
+    if (isMobile) {
+      video.style.transform = "scale(1)";
+      return;
+    }
+
     const ctx = gsap.context(() => {
-      // Responsive initial scale: größer auf Mobile, kleiner auf Desktop
-      const isMobile = window.innerWidth < 768;
-      const isTablet = window.innerWidth >= 768 && window.innerWidth < 1024;
-      
       let startScale = 0.3; // Desktop default
-      if (isMobile) startScale = 0.6; // Mobile: 60%
-      else if (isTablet) startScale = 0.45; // Tablet: 45%
+      if (isTablet) startScale = 0.45;
 
       const tl = gsap.timeline({
         scrollTrigger: {
@@ -45,16 +49,14 @@ export function ScrollVideoHero() {
     }, container);
 
     const handleMouseMove = (e: MouseEvent) => {
-      if (!video || !container) return;
+      if (!video || !container || isMobile) return;
 
-      const videoRect = video.getBoundingClientRect();
-      const videoCenterX = videoRect.left + videoRect.width / 2;
-      const videoCenterY = videoRect.top + videoRect.height / 2;
+      const rect = video.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
 
-      const x = (e.clientX - videoCenterX) / (videoRect.width / 2);
-      const y = (e.clientY - videoCenterY) / (videoRect.height / 2);
-
-      // Influence: starts at 0.2 (20% strength), decreases to 0 as you scroll
+      const x = (e.clientX - cx) / (rect.width / 2);
+      const y = (e.clientY - cy) / (rect.height / 2);
       const influence = (1 - progressRef.current) * 0.2;
 
       gsap.to(video, {
@@ -78,7 +80,7 @@ export function ScrollVideoHero() {
   return (
     <section
       ref={containerRef}
-      className="relative max-w-7xl mx-auto h-[200vh] bg-transparent flex items-center justify-center z-30 overflow-hidden"
+      className="relative max-w-7xl mx-5 sm:mx-auto h-[200vh] bg-transparent flex items-center justify-center z-30 overflow-hidden"
     >
       <video
         ref={videoRef}

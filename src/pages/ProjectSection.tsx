@@ -18,7 +18,7 @@ const projects = [
   },
   {
     title: "Van Goghs Gedankenwelt",
-    title2: "VR ANWENDUNG",
+    title2: "VR Anwendung",
     year: "2025",
     image: "/images/projects/VanGogh_VR_Laptop.png",
     hoverImage: "/images/projects/vangogh_hover.png",
@@ -92,7 +92,10 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
   const overlayRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
 
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+
   function handleMouseEnter() {
+    if (isMobile) return;
     if (imgRef.current) {
       gsap.to(imgRef.current, {
         scale: 1.05,
@@ -112,6 +115,7 @@ function ProjectCard({ project }: { project: typeof projects[0] }) {
   }
 
   function handleMouseLeave() {
+    if (isMobile) return;
     if (imgRef.current) {
       gsap.to(imgRef.current, {
         scale: 1,

@@ -20,7 +20,7 @@ export default function VanGoghProject() {
       <main className="min-h-screen bg-white text-gray-900 font-fira">
         <section className="max-w-7xl mx-auto pt-40 pb-16 sm:pb-24 md:pb-32">
           {/* Header Image */}
-          <div className="relative rounded-2xl overflow-hidden mx-20">
+          <div className="relative rounded-2xl overflow-hidden mx-6 sm:mx-12 md:mx-20">
             <Image
               src="/images/projects/flunke/Header.png"
               alt="Flunk-E Project"
@@ -30,11 +30,11 @@ export default function VanGoghProject() {
               priority
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-            <div className="absolute bottom-10 left-10 md:left-16 text-white">
-              <h1 className="text-3xl md:text-6xl font-bold mb-2">
+            <div className="absolute bottom-5 sm:bottom-10 left-5 sm:left-10 md:left-16 text-white">
+              <h1 className="text-xl sm:text-3xl md:text-6xl font-bold mb-2">
                 Flunk-E
               </h1>
-              <p className="text-lg md:text-2xl font-medium opacity-90">
+              <p className="text-sm sm:text-xl md:text-2xl font-medium opacity-90">
                 IOT-Anwendung
               </p>
             </div>
@@ -42,7 +42,7 @@ export default function VanGoghProject() {
         </section>
 
           {/* DESCRIPTION */}
-          <section className="max-w-7xl mx-auto text-center px-6 md:px-12 lg:px-20">
+          <section className="max-w-7xl mx-auto sm:text-center px-6 md:px-12 lg:px-20">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-neutral-700">
               Ein Ball. Zwei Teams. Unendlich viel Spannung.
               Flunk·E verwandelt Flunkyball in ein interaktives Spielerlebnis – mit Sensor, Echtzeit-Feedback und App-Anbindung.
