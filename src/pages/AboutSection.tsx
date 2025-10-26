@@ -4,11 +4,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function AboutSection() {
-  // Passe die E‑Mail hier an
-  const email = "joost.hasch@web.de";
-
-  const mailtoHref = `mailto:${encodeURIComponent(email)}`;
-
   return (
     <section id="about" className="w-full bg-[#141414] py-16 sm:py-24 md:p-32 rounded-2xl sm:rounded-3xl">
       <div className="max-w-7xl mx-auto px-6 sm:px-10 md:px-12 lg:px-16">
