@@ -45,7 +45,7 @@ export default function VanGoghProject() {
           <section className="max-w-7xl mx-auto sm:text-center px-6 md:px-12 lg:px-20">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-neutral-700">
               Ein Ball. Zwei Teams. Unendlich viel Spannung.
-              Flunk-E verwandelt Flunkyball in ein interaktives Spielerlebnis – mit Sensor, Echtzeit-Feedback und App-Anbindung.
+              Flunk-E verwandelt das Spiel Flunkyball in ein interaktives Spielerlebnis – mit Sensor, Echtzeit-Feedback und App-Anbindung.
               Wer trifft, löst digitale Effekte und neue Regeln aus.
               So wird aus jeder Runde ein Wettkampf zwischen Skill, Glück und Chaos.
             </p>
@@ -54,23 +54,7 @@ export default function VanGoghProject() {
             {/* CONTENT SECTIONS */}
         <section className="bg-[#141414] mt-32 py-16 sm:py-24 md:py-32 rounded-t-2xl sm:rounded-t-3xl">
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 space-y-16 md:space-y-24">
-            {/* 5. Full-width Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="relative aspect-video overflow-hidden"
-            >
-              <Image
-                src="/images/projects/flunke/design.png"
-                alt="Final Result"
-                fill
-                className="object-cover rounded-2xl"
-              />
-            </motion.div>
-
-            {/* 1. Image Left / Text Right */}
+             {/* 4. Text Left / Image Right */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -78,31 +62,46 @@ export default function VanGoghProject() {
               viewport={{ once: true }}
               className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
             >
-              <div className="relative aspect-[11/16] overflow-hidden rounded-2xl max-h-[600px] mx-auto lg:mx-0">
-                <video
-                  src="/videos/flunke/aufbau.mp4"      /* Pfad anpassen */
-                  className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  aria-label="VR Environment video"
-                />
+              <div className="space-y-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                Vom Konzept zum digitalen Spielerlebnis
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                Der Entwicklungsprozess begann mit ersten Ideen und Flowcharts, um den Spielablauf und mögliche Interaktionen zu strukturieren. Wir analysierten typische Spielsituationen und suchten nach Wegen, Flunkyball spannender und ausgeglichener zu gestalten. Dabei entstand die Idee, ein System zu entwickeln, das das Spielgeschehen automatisch erkennt und durch zusätzliche Challenges dynamischer macht.
+              </p>
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                Nach der Konzeptphase folgte die Auswahl geeigneter Sensorik, um Würfe und Treffer zuverlässig zu erfassen. Parallel dazu entwickelten wir erste App-Strukturen und Wireframes, um den Ablauf und die Nutzererfahrung zu planen. In mehreren Iterationen entstanden Low-Fidelity-Prototypen, die wir testeten, um die Logik und den Spielfluss zu verfeinern.
+              </p>
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                Schritt für Schritt wuchs daraus ein funktionierendes Gesamtsystem: Sensoren im Ball und Flasche erkennen Treffer und übermitteln Daten an die App, die den Spielzustand in Echtzeit anzeigt und automatisch passende Challenges auslöst. So verbindet Flunke physisches Spiel, digitale Technik und Interaktionsdesign zu einem neuen, dynamischen Spielerlebnis.
+              </p>
               </div>
 
-              <div className="space-y-4">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                  Design, das knallt
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Das Design von Flunk·E bleibt konstant laut, klar und energiegeladen.
-                  Knallige Farben, kontrastreiche Flächen und ein durchgängiger visueller Rhythmus spiegeln den Wettbewerbsgeist des Spiels wider.
-                </p>
-                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Ein selbst animiertes Tutorial führt humorvoll ins Chaos ein – begleitet von handgezeichneten Challenges, die jedes Match einzigartig machen.
-                </p>
+              <div className="relative aspect-[9/16] overflow-hidden rounded-2xl max-h-[600px] w-full max-w-sm mx-auto lg:ml-auto lg:mr-0">
+                 <Image
+                src="/images/projects/flunke/screen.png"
+                alt="Final Result"
+                fill
+                className="object-cover rounded-2xl"
+              />
               </div>
+            </motion.div>
+
+            {/* 5. Full-width Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden"
+            >
+              <Image
+              src="/images/projects/flunke/verlauf.png"
+              alt="Final Result"
+              width={1920}
+              height={1080}
+              className="w-full h-auto rounded-2xl"
+              />
             </motion.div>
 
             {/* 2. Wide Image */}
@@ -121,7 +120,7 @@ export default function VanGoghProject() {
               />
             </motion.div>
 
-            {/* 4. Text Left / Image Right */}
+            {/* 1. Image Left / Text Right */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -129,28 +128,48 @@ export default function VanGoghProject() {
               viewport={{ once: true }}
               className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
             >
-              <div className="space-y-4">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                  Technik & Umsetzung
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Ein Arduino in Ball und Flasche misst Wurf und Beschleunigung, erkennt, ob die Flasche umgefallen ist, und überträgt die Daten an die App.
-                </p>
-                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Treffer lösen Challenges und Animationen aus, Fehlwürfe geben direkt Feedback.
-                  So verschmilzt physisches Spiel mit interaktiver Technik zu einem dynamischen Spielerlebnis.
-                </p>
-              </div>
-
-              <div className="relative aspect-[14/9] overflow-hidden rounded-2xl max-h-[600px] w-full max-w-sm mx-auto lg:ml-auto lg:mr-0">
-                <Image
-                  src="/images/projects/flunke/technic.png"
-                  alt="AI Conversation"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
+              <div className="relative aspect-[11/16] overflow-hidden rounded-2xl max-h-[600px] mx-auto lg:mx-0">
+                <video
+                  src="/videos/flunke/tutorial.mp4"      /* Pfad anpassen */
+                  className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-500 hover:scale-105"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  aria-label="VR Environment video"
                 />
               </div>
+
+              <div className="space-y-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                  Design, das knallt
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                 Das Design von Flunke ist bewusst schlicht, aber kontrastreich gehalten, damit Spieler:innen neue Challenges schnell erfassen können, ohne vom eigentlichen Spielgeschehen abgelenkt zu werden. Klare Flächen, deutliche Farben und eine aufgeräumte Typografie sorgen für Übersicht und Tempo.
+                </p>
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                  Ein selbst animiertes Tutorial führt mit einem Augenzwinkern ins Spiel ein, während handgezeichnete Illustrationen und animierte Challenges für Abwechslung und Spielfreude sorgen – ganz im Sinne des dynamischen, humorvollen Flunkyball-Erlebnisses.
+                </p>
+              </div>
             </motion.div>
+
+            {/* 5. Full-width Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="relative aspect-video overflow-hidden"
+            >
+              <Image
+                src="/images/projects/flunke/design.png"
+                alt="Final Result"
+                fill
+                className="object-cover rounded-2xl"
+              />
+            </motion.div>
+
           </div>
         </section>
       

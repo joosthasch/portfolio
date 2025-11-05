@@ -87,6 +87,21 @@ export default function LogoScroller() {
                 />
               </div>
             ))}
+            {/* Duplicate set for seamless loop */}
+            {logos.map((logo, index) => (
+              <div
+                key={`logo-2-${index}`}
+                className="flex-shrink-0 w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 flex items-center justify-center grayscale hover:grayscale-0 transition-all duration-300"
+              >
+                <Image
+                  src={logo.src}
+                  alt={logo.name}
+                  width={128}
+                  height={128}
+                  className="w-full h-full object-contain"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>

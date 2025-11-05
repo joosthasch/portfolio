@@ -6,6 +6,17 @@ import Link from "next/link";
 
 const projects = [
   {
+    title: "Hidden Gems",
+    title2: "Mobile App",
+    year: "2025",
+    image: "/images/projects/hidden_gems.png",
+    hoverImage: "/images/projects/hidden_gems.png",
+    subtitle:
+      "MOBILE APP, FIGMA, PROTOTYPING, UI, UX, USER FLOW, WIREFRAMES, UI DESIGN, MAP INTEGRATION",
+    icon: "/images/projects/icons/hidden-gems_icon.png",
+    path: "/projects/hidden-gems",
+  },
+  {
     title: "Flunk-E",
     title2: "IoT-App",
     year: "2025",

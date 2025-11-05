@@ -79,21 +79,6 @@ export default function AboutSection() {
                 className="object-cover hover:scale-105 transition-transform duration-500"
               />
             </motion.div>
-            {/* Image 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="relative aspect-video overflow-hidden rounded-2xl"
-            >
-              <Image
-                src="/images/about/photoshoot.png"
-                alt="Joost Haschen"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-500"
-              />
-            </motion.div>
           </div>
         </div>
       </div>
