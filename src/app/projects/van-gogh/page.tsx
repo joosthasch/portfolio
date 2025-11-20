@@ -57,7 +57,7 @@ export default function VanGoghProject() {
             Für das Visiodrom Wuppertal entstand eine immersive VR-Erfahrung, die Besucher:innen in die Gedankenwelt von Vincent van Gogh eintauchen lässt. Mithilfe einer VR-Brille können sie sich mit einer KI unterhalten, die auf den Briefen des Künstlers basiert.
           </p>
           <p className="mt-16 text-base sm:text-xl md:text-3xl leading-relaxed font-bold text-neutral-800">
-            – ein poetisches Gespräch zwischen Vergangenheit und digitaler Gegenwart.
+            Ein poetisches Gespräch zwischen Vergangenheit und digitaler Gegenwart.
           </p>
         </section>
 
@@ -65,60 +65,43 @@ export default function VanGoghProject() {
         <section className="bg-[#141414] mt-32 py-16 sm:py-24 md:py-32 rounded-t-2xl sm:rounded-t-3xl">
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 space-y-16 md:space-y-24">
 
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}>
+                <div className="space-y-4">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                    Die Idee hinter dem Projekt
+                  </h2>
+                  <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                  Ziel war es, Van Gogh nicht nur als historische Figur zu zeigen, sondern als erlebbaren Menschen. Dafür wurde eine KI entwickelt, die auf seinen Briefen basiert – vor allem denen an seinen Bruder Theo. So entstehen Gespräche, die sich in Stil und Gedankenwelt an Van Gogh anlehnen und Besucher:innen einen persönlichen Zugang ermöglichen.
+                  </p>
+                  <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                  Die Interaktivität ermöglicht es, auf individuelle Fragen und Themen einzugehen, und macht die historischen Texte erlebbar. Anstatt nur Informationen zu konsumieren, können die Besucher:innen Van Goghs Gedanken selbst entdecken und „erleben“, was eine neue Dimension der Auseinandersetzung mit Kunstgeschichte eröffnet.
+                  </p>
+                </div>
+              </motion.div>
+
             {/* 5. Full-width Video Section */}
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="relative aspect-video overflow-hidden rounded-2xl"
-            >
-              <div className="group relative aspect-[16/9] overflow-hidden rounded-2xl max-h-[600px] mx-auto lg:mx-0 shadow-xl">
-
-                {/* Overlay Play Button */}
-
-                <video
-                  src="/videos/van-gogh/gameplay.mp4"
-                  className="absolute inset-0 w-full h-full object-cover
-                            transition-opacity duration-300"
-                  preload="metadata"
-                  controls
-                  playsInline
-                />
-
-              </div>
-            </motion.div>
-
-            {/* 1. Image Left / Text Right */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
-            >
-              <div className="relative aspect-[9/16] overflow-hidden rounded-2xl max-h-[600px] mx-auto lg:mx-0">
-                <Image
-                  src="/images/projects/van-gogh/gallery-3.png"
-                  alt="VR Environment"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              <div className="space-y-4">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                  Die Idee hinter dem Projekt
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Eine immersive VR-Experience, die historische Kunst und künstliche Intelligenz vereint.
-                  Wie kann KI genutzt werden, um Kunstgeschichte neu erlebbar zu machen?
-                </p>
-                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Ein interaktives Experiment über Erinnerung, Präsenz und digitale Reinkarnation.
-                </p>
-              </div>
-            </motion.div>
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="relative aspect-video overflow-hidden rounded-2xl"
+              >
+                <div className="relative aspect-[16/9] max-h-[600px] mx-auto lg:mx-0 shadow-xl">
+                  <video
+                    src="/videos/van-gogh/gameplay.mp4"
+                    controls
+                    className="w-full h-full object-cover rounded-2xl"
+                    style={{ position: "absolute", top: 0, left: 0 }}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              </motion.div>
 
            {/* 💬 3. Animated Conversation Section */}
             <div className="bg-[#141414] rounded-2xl py-16 px-4 sm:px-8 md:px-12">
@@ -129,7 +112,7 @@ export default function VanGoghProject() {
                 viewport={{ once: true }}
                 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 text-white"
               >
-                Ein Gespräch mit Van Gogh
+                Ein Einblick in das Gesprächserlebnis
               </motion.h2>
 
               <div className="flex flex-col space-y-6 max-w-3xl mx-auto">
@@ -169,26 +152,24 @@ export default function VanGoghProject() {
                   KI-gestützte Konversation
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Das virtuelle Zimmer basiert auf einem 3D-Modell von {" "}
-                  <a
+                  Die virtuelle Umgebung basiert auf einem <a
                     href="https://sketchfab.com/3d-models/van-gogh-room-311d052a9f034ba8bce55a1a8296b6f9"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white hover:underline"
                     title="Sketchfab öffnen (öffnet in neuem Tab)"
                   >
-                    Sketchfab
-                  </a>{" "} und wurde in Blender um eigene Objekte erweitert, um die Atmosphäre von Van Goghs Lebensraum noch greifbarer zu machen. 
-                  Die Benutzeroberfläche und Interaktionen entstanden in Unity – entwickelt für die Meta Quest 3.
+                    Sketchfab-Modell
+                  </a>{" "} , das in Blender um zusätzliche Details ergänzt wurde, um Van Goghs Lebensraum atmosphärisch einzufangen. Die Interaktionen wurden in Unity für die Meta Quest 3 entwickelt.
                 </p>
                 <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Über Speech-to-Text wird die gesprochene Sprache an OpenAI gesendet, wo auf Grundlage von Van Goghs Briefen eine Antwort generiert wird. Diese wird anschließend per Text-to-Speech mit einem holländischen Akzent wiedergegeben – und lässt so ein glaubhaftes Gespräch mit Van Gogh entstehen.
+                  Über Speech-to-Text wird die gesprochene Sprache an OpenAI gesendet, wo auf Grundlage von Van Goghs Briefen eine Antwort generiert wird. Diese wird anschließend per Text-to-Speech mit einem niederländischen Akzent wiedergegeben – und lässt so ein glaubhaftes Gespräch mit Van Gogh entstehen.
                 </p>
               </div>
 
               <div className="relative aspect-[9/16] overflow-hidden rounded-2xl max-h-[600px] w-full max-w-sm mx-auto lg:ml-auto lg:mr-0">
                 <Image
-                  src="/images/projects/van-gogh/gallery-1.png"
+                  src="/images/projects/van-gogh/code.png"
                   alt="AI Conversation"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-500"
@@ -205,12 +186,27 @@ export default function VanGoghProject() {
               className="relative aspect-video overflow-hidden rounded-2xl"
             >
               <Image
-                src="/images/projects/van-gogh/gallery-4.png"
+                src="/images/projects/van-gogh/vrbrille.png"
                 alt="Final Result"
                 fill
                 className="object-cover"
               />
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}>
+                <div className="space-y-4">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                    Ein neuer Zugang zur Kunstgeschichte
+                  </h2>
+                  <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                    Das Projekt zeigt, wie digitale Technologien neue Perspektiven auf kunsthistorische Inhalte eröffnen. Durch die Rekonstruktion historischer Stimmen und ihre Einbettung in interaktive Szenarien wird Lernen persönlicher und unmittelbarer. Vergangene Persönlichkeiten werden nicht nur beschrieben, sondern erlebbar gemacht – und Kunstgeschichte wird zu einer Erfahrung, die man aktiv erforschen kann.
+                  </p>
+                </div>
+              </motion.div>
           </div>
         </section>
       </main>
