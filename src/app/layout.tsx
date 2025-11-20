@@ -1,8 +1,7 @@
 import "../styles/globals.css";
 
 export const metadata = {
-  title: 'Van Gogh Portfolio',
-  description: 'My React/Next.js portfolio',
+  title: 'Joost Haschen',
   icons: '/favicon.png', // this sets the favicon
 }
 
