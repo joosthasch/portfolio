@@ -29,7 +29,7 @@ export default function VanGoghProject() {
               className="w-full h-auto rounded-2xl"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute inset-0 " />
             <div className="absolute bottom-5 sm:bottom-10 left-5 sm:left-10 md:left-16 text-white">
               <h1 className="text-xl sm:text-3xl md:text-6xl font-bold mb-2">
                 Hidden Gems
@@ -45,7 +45,7 @@ export default function VanGoghProject() {
           <section className="max-w-7xl mx-auto sm:text-center px-6 md:px-12 lg:px-20">
             <p className="text-base sm:text-lg md:text-xl leading-relaxed text-neutral-700">
               Hidden Gems ist eine mobile App, die Menschen hilft, authentische Orte in einer Stadt zu entdecken – kleine Cafés, versteckte Aussichtspunkte, lokale Kunst oder gemütliche Bars.
-                Anstatt in Touristenfallen zu landen, zeigt die App Orte, die von Locals empfohlen wurden.
+                Anstatt in Touristenfallen zu landen, zeigt die App Orte, die von Leuten vor Ort empfohlen wurden.
             </p>
             <p className="mt-16 text-base sm:text-xl md:text-3xl leading-relaxed font-bold text-neutral-800">
                 Eine Stadt hat so viele verborgene Schätze – man muss nur wissen, wo man suchen muss.
@@ -81,7 +81,7 @@ export default function VanGoghProject() {
                 viewport={{ once: true }}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
             >
-                <div className="relative aspect-[17/16] overflow-hidden rounded-2xl max-h-[600px] mx-auto lg:mx-0">
+                <div className="relative aspect-[17/16] overflow-hidden rounded-2xl h-[300px] sm:h-[400px] max-h-[600px] mx-auto lg:mx-0">
                 <Image
                     src="/images/projects/hidden-gems/userflow.png"
                     alt="VR Environment"
@@ -95,13 +95,12 @@ export default function VanGoghProject() {
                     User Flow
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                    Der Flow konzentriert sich auf Einfachheit:
-                    Nutzer*innen können direkt nach dem Onboarding Orte entdecken, sich anmelden oder als Gast fortfahren.
+                    Der User Flow wurde so gestaltet, dass die Karte mit den Gems das Herzstück der App bildet.
+                    Alle wichtigen Aktionen – Entdecken, Öffnen, Liken und Erstellen von Gems – sind direkt von dort aus erreichbar.
                 </p>
                 <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                    Von der Karte aus lässt sich jeder Gem öffnen, speichern oder liken.
-                    Über das Plus-Symbol kann man eigene Orte hinzufügen – mit Titel, Bild, Beschreibung und Kategorie.
-                    Das Sidemenu bietet Zugriff auf gespeicherte und eigene Gems sowie Einstellungen und Feedback.
+                    Weniger häufig genutzte Bereiche wie gespeicherte oder eigene Gems, Feedback oder Einstellungen befinden sich im Sidemenu.
+                    So wurde schon früh im Flow definiert, welche Funktionen zentral sichtbar und welche untergeordnet platziert werden, um die Nutzung so effizient wie möglich zu halten.
                 </p>
                 </div>
             </motion.div>
@@ -119,9 +118,11 @@ export default function VanGoghProject() {
                   Wireframes
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Die Wireframes zeigten früh, wie wichtig Orientierung und Klarheit sind.
-                    Die Karte steht immer im Fokus – Elemente wie Filter, Bottom Cards oder das Hinzufügen neuer Gems wurden so positioniert, dass sie den Flow nicht stören, sondern unterstützen.
-                    Jeder Screen hat nur eine Hauptaktion, um Ablenkung zu vermeiden und den Entdeckungsprozess leicht verständlich zu halten.
+                  In den Wireframes stand die Frage im Mittelpunkt, wie die wichtigsten Funktionen sinnvoll auf dem Kartenscreen angeordnet werden können.
+                </p>
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                  Ziel war es, schnellen Zugriff auf alles Wesentliche zu ermöglichen, ohne den Bildschirm zu überladen.
+                    Elemente wie Bottom Cards, Kategorie-Filter und der Button zum Hinzufügen neuer Gems wurden so positioniert, dass sie intuitiv erreichbar bleiben und den Entdeckungsfluss unterstützen.
                 </p>
               </div>
 
@@ -143,12 +144,14 @@ export default function VanGoghProject() {
               viewport={{ once: true }}
               className="relative aspect-video overflow-hidden"
             >
-              <Image
-                src="/images/projects/hidden-gems/design.png"
-                alt="Final Result"
-                fill
-                className="object-cover rounded-2xl"
-              />
+                <div className="relative aspect-[4/2] overflow-hidden rounded-2xl max-h-[600px] mx-auto lg:mx-0">
+                <Image
+                    src="/images/projects/hidden-gems/design.png"
+                    alt="VR Environment"
+                    fill
+                    className="object-cover"
+                />
+                </div>
             </motion.div>
 
             {/* 4. Text Left / Image Right */}
@@ -161,12 +164,17 @@ export default function VanGoghProject() {
             >
               <div className="space-y-4">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                  Wireframes
+                  UI Design
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Die Wireframes zeigten früh, wie wichtig Orientierung und Klarheit sind.
-                    Die Karte steht immer im Fokus – Elemente wie Filter, Bottom Cards oder das Hinzufügen neuer Gems wurden so positioniert, dass sie den Flow nicht stören, sondern unterstützen.
-                    Jeder Screen hat nur eine Hauptaktion, um Ablenkung zu vermeiden und den Entdeckungsprozess leicht verständlich zu halten.
+                  Das Design der App ist bewusst minimalistisch gehalten, um den Fokus auf die Karte und die Gems zu lenken.
+                </p>
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                  Ein monochromes Farbschema aus Schwarz, Weiß und Grautönen sorgt für Klarheit, während D5FF00 als markanter Akzent Energie und Wiedererkennbarkeit schafft.
+                </p>
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                    Die Gems spielen dabei eine zentrale Rolle: farblich codiert nach Kategorie und mit kleinen Icons, die auf einen Blick zeigen, worum es sich handelt – etwa Essen, Kunst, Nachtleben oder Chill-Spots.
+                    Das UI vermittelt Leichtigkeit und Orientierung, ohne visuell zu überfordern.
                 </p>
               </div>
 
@@ -178,6 +186,38 @@ export default function VanGoghProject() {
                   className="object-cover hover:scale-105 transition-transform duration-500"
                 />
               </div>
+            </motion.div>
+
+            {/* 1. Image Left / Text Right */}
+            <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7 }}
+                viewport={{ once: true }}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
+            >
+                <div className="relative aspect-[16/20] overflow-hidden rounded-2xl h-[300px] sm:h-[400px] max-h-[600px] mx-auto lg:mx-0">
+                <Image
+                    src="/images/projects/hidden-gems/prototyp.png"
+                    alt="VR Environment"
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-500"
+                />
+                </div>
+
+                <div className="space-y-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                    Prototyp
+                </h2>
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                    Der finale Prototyp zeigt die App als voll funktionsfähiges Gesamterlebnis.
+                    Vom Onboarding über die interaktive Karte bis hin zum Erstellen und Speichern eigener Gems lässt sich der gesamte Flow durchspielen.
+                </p>
+                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                    Animationen und Übergänge wurden dezent eingesetzt, um den Entdeckungsprozess flüssig und natürlich wirken zu lassen.
+                    So entstand ein greifbarer, nutzbarer Prototyp, der Konzept und Umsetzung nahtlos verbindet.
+                </p>
+                </div>
             </motion.div>
 
           </div>

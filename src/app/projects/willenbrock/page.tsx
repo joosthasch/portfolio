@@ -30,7 +30,7 @@ export default function Willenbrock() {
               className="w-full h-auto rounded-2xl"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute inset-0" />
             <div className="absolute bottom-5 sm:bottom-10 left-5 sm:left-10 md:left-16 text-white">
               <h1 className="text-xl sm:text-3xl md:text-6xl font-bold mb-2">
                 Willenbrock
@@ -45,9 +45,9 @@ export default function Willenbrock() {
         {/* DESCRIPTION */}
         <section className="max-w-7xl mx-auto sm:text-center px-6 md:px-12 lg:px-20">
           <p className="text-base sm:text-lg md:text-xl leading-relaxed text-neutral-700">
-           Für den Weinshop Willenbrock haben wir eine umfassende Usability-Untersuchung durchgeführt.
-            Mithilfe von Eye-Tracking, Nutzungsszenarien und Interviews haben wir das Verhalten der Nutzer:innen analysiert und Schwachstellen identifiziert.
-            Auf Basis der Erkenntnisse haben wir gezielte Optimierungen entwickelt, die die User Experience verbessern, typische Probleme lösen und die Navigation intuitiver machen.
+           Für den Weinshop Willenbrock wurde eine Usability-Untersuchung durchgeführt. Ziel war es, die Gründe für häufige Kaufabbrüche zu verstehen
+            und Ansätze zur Verbesserung von Traffic, Orientierung und Conversion zu entwickeln. Grundlage war die Frage, an welchen Stellen der
+             Online-Shop aus Nutzersicht Reibungspunkte erzeugt.
           </p>
         </section>
 
@@ -77,29 +77,13 @@ export default function Willenbrock() {
                   Nutzer:innen im Fokus
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Mit Kameras und Bildschirm konnten wir die Teilnehmer:innen während des Tests direkt beobachten – welche Produkte sie ansahen, wo sie zögerten und wie sie sich durch den Shop bewegten.
-                  Durch lautes Denken teilten die Nutzer:innen ihre Gedanken in Echtzeit, was wertvolle Einblicke in Motivation, Verständnis und Probleme lieferte.
+                  Die Untersuchung fand im Usability-Labor der Hochschule statt. Geplant wurde ein Testverfahren bestehend aus Eyetracking, Lautem Denken und Kameraaufzeichnung. 
+                  Die Teilnehmenden wurden durch typische Einkaufsaufgaben geführt, während ihr Blickverhalten und ihre Interaktionen aufgezeichnet wurden.
                 </p>
                 <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Diese Beobachtungen bildeten die Grundlage für gezielte Optimierungen, die den Einkauf intuitiver und angenehmer machen
+                  So konnten wir nachvollziehen, wo Nutzer ins Stocken geraten, welche Bereiche unklar wirken oder unnötige kognitive Belastung verursachen.
                 </p>
               </div>
-            </motion.div>
-
-            {/* 2. Wide Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="relative aspect-video overflow-hidden max-w-5xl mx-auto"
-            >
-              <Image
-                src="/images/projects/willenbrock/ablauf.png"
-                alt="Full VR Experience"
-                fill
-                className="object-cover rounded-2xl "
-              />
             </motion.div>
 
             {/* 4. Text Left / Image Right */}
@@ -111,26 +95,25 @@ export default function Willenbrock() {
               className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
             >
               <div className="space-y-4">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                  Eyetracking – Nutzerverhalten sichtbar machen
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Mit Eyetracking konnten wir genau nachvollziehen, wohin die Testpersonen auf der Website 
-                  blickten und wie sie sich durch den Shop bewegten. So wurden Momente der Unsicherheit oder Orientierungslosigkeit direkt sichtbar.
-                </p>
-                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Ein Blick auf die Blickverläufe zeigte, dass die Teilnehmenden bei der Mengenauswahl ins Stocken gerieten. Statt mehrere Flaschen auswählen 
-                  zu können, standen nur „0“ oder „1“ zur Verfügung – ein Detail, das für Verwirrung sorgte und die Frage aufwarf, ob der Wein eventuell ausverkauft sei.
-                </p>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                Eyetracking – Nutzerverhalten sichtbar machen
+              </h2>
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                Das Video zeigt exemplarisch, wie Nutzer durch den Shop navigieren und an welchen Stellen sie Schwierigkeiten haben. Es dient zur Veranschaulichung der Methode und der gewonnenen Erkenntnisse.
+              </p>
               </div>
 
-              <div className="relative aspect-[9/16] overflow-hidden rounded-2xl max-h-[600px] w-full max-w-sm mx-auto lg:ml-auto lg:mr-0">
-                <Image
-                  src="/images/projects/willenbrock/weinshop.png"
-                  alt="AI Conversation"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                />
+              <div className="relative aspect-[16/9] overflow-hidden rounded-2xl w-full">
+              <video
+                src="/videos/willenbrock/eyetracking.mp4"      /* Pfad anpassen */
+                className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                aria-label="VR Environment video"
+              />
               </div>
             </motion.div>
 
@@ -140,19 +123,33 @@ export default function Willenbrock() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="relative aspect-video overflow-hidden"
+              className="relative overflow-hidden"
             >
-              <video
-                  src="/videos/willenbrock/eyetracking.mp4"      /* Pfad anpassen */
-                  className="absolute inset-0 w-full h-full object-cover rounded-2xl"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="metadata"
-                  aria-label="VR Environment video"
-                />
+              <Image
+              src="/images/projects/willenbrock/vorgehen.png"
+              alt="Final Result"
+              width={1920}
+              height={1080}
+              className="w-full h-auto rounded-2xl"
+              />
             </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}>
+                <div className="space-y-4">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                    Auswertung & Erkenntnisse
+                  </h2>
+                  <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                    Die Auswertung der Usability-Tests und Interviews zeigte, an welchen Stellen Nutzer im Online-Shop stockten oder auf Probleme stießen. 
+                    Auf Basis dieser Erkenntnisse konnten gezielt Optimierungsvorschläge entwickelt werden, um die Nutzerführung zu verbessern und Kaufabbrüche zu reduzieren.
+                  </p>
+                </div>
+              </motion.div>
+
           </div>
         </section>
       </main>

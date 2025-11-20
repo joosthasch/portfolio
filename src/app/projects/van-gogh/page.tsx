@@ -39,7 +39,7 @@ export default function VanGoghProject() {
               className="w-full h-auto rounded-2xl"
               priority
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+            <div className="absolute inset-0" />
             <div className="absolute bottom-5 sm:bottom-10 left-5 sm:left-10 md:left-16 text-white">
               <h1 className="text-xl sm:text-3xl md:text-6xl font-bold mb-2">
                 Van Goghs Gedankenwelt
@@ -64,6 +64,30 @@ export default function VanGoghProject() {
         {/* CONTENT SECTIONS */}
         <section className="bg-[#141414] mt-32 py-16 sm:py-24 md:py-32 rounded-t-2xl sm:rounded-t-3xl">
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 space-y-16 md:space-y-24">
+
+            {/* 5. Full-width Video Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="relative aspect-video overflow-hidden rounded-2xl"
+            >
+              <div className="group relative aspect-[16/9] overflow-hidden rounded-2xl max-h-[600px] mx-auto lg:mx-0 shadow-xl">
+
+                {/* Overlay Play Button */}
+
+                <video
+                  src="/videos/van-gogh/gameplay.mp4"
+                  className="absolute inset-0 w-full h-full object-cover
+                            transition-opacity duration-300"
+                  preload="metadata"
+                  controls
+                  playsInline
+                />
+
+              </div>
+            </motion.div>
 
             {/* 1. Image Left / Text Right */}
             <motion.div
@@ -94,22 +118,6 @@ export default function VanGoghProject() {
                   Ein interaktives Experiment über Erinnerung, Präsenz und digitale Reinkarnation.
                 </p>
               </div>
-            </motion.div>
-
-            {/* 2. Wide Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="relative aspect-video overflow-hidden rounded-2xl max-w-3xl mx-auto"
-            >
-              <Image
-                src="/images/projects/van-gogh/gallery-2.png"
-                alt="Full VR Experience"
-                fill
-                className="object-cover"
-              />
             </motion.div>
 
            {/* 💬 3. Animated Conversation Section */}
