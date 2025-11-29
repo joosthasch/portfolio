@@ -55,6 +55,23 @@ export default function Willenbrock() {
         <section className="bg-[#141414] mt-32 py-16 sm:py-24 md:py-32 rounded-t-2xl sm:rounded-t-3xl">
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 space-y-16 md:space-y-24">
 
+            {/* 5. Full-width Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden"
+            >
+              <Image
+              src="/images/projects/willenbrock/vorgehen.png"
+              alt="Final Result"
+              width={1920}
+              height={1080}
+              className="w-full h-auto rounded-2xl"
+              />
+            </motion.div>
+
             {/* 1. Image Left / Text Right */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -77,7 +94,7 @@ export default function Willenbrock() {
                   Nutzer:innen im Fokus
                 </h2>
                 <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Die Untersuchung fand im Usability-Labor der Hochschule statt. Geplant wurde ein Testverfahren bestehend aus Eyetracking, Lautem Denken und Kameraaufzeichnung. 
+                  Die Untersuchung fand im Usability-Labor der Hochschule statt. Geplant wurde ein Testverfahren bestehend aus Eyetracking, Lautem Denken und anschließendem Interview. 
                   Die Teilnehmenden wurden durch typische Einkaufsaufgaben geführt, während ihr Blickverhalten und ihre Interaktionen aufgezeichnet wurden.
                 </p>
                 <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
@@ -86,52 +103,83 @@ export default function Willenbrock() {
               </div>
             </motion.div>
 
-            {/* 4. Text Left / Image Right */}
+            {/* PROBLEM & OPTIMIERUNG: Eyetracking + Vorher/Nachher */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
+              className="space-y-6 md:space-y-10"
             >
-              <div className="space-y-4">
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                Eyetracking – Nutzerverhalten sichtbar machen
+                Nutzerverhalten sichtbar machen & Optimierung ableiten
               </h2>
-              <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                Das Video zeigt exemplarisch, wie Nutzer durch den Shop navigieren und an welchen Stellen sie Schwierigkeiten haben. Es dient zur Veranschaulichung der Methode und der gewonnenen Erkenntnisse.
-              </p>
-              </div>
 
-              <div className="relative aspect-[16/9] overflow-hidden rounded-2xl w-full">
-              <video
-                src="/videos/willenbrock/eyetracking.mp4"      /* Pfad anpassen */
-                className="absolute inset-0 w-full h-full object-cover rounded-2xl"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-label="VR Environment video"
-              />
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                Das Eyetracking zeigte deutlich, wo Nutzer:innen im Kaufprozess ins Stocken gerieten. Besonders auffällig war, dass in der Produktübersicht nur 0 oder 1 Flasche ausgewählt werden konnte – ein Missverständnis, das zu wiederholten Kaufabbrüchen führte. Basierend auf diesen Erkenntnissen wurde die Mengenauswahl überarbeitet und intuitiver gestaltet.
+              </p>
+            </motion.div>
+
+            {/* EYETRACKING VIDEO – FULL WIDTH */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="relative overflow-hidden mt-6"
+            >
+              <div className="relative aspect-[16/8] overflow-hidden rounded-2xl w-full">
+                <video
+                  src="/videos/willenbrock/eyetracking.mp4"
+                  className="absolute inset-0 w-full h-full object-cover rounded-2xl"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                />
               </div>
             </motion.div>
 
-            {/* 5. Full-width Image */}
+            {/* VORHER/NACHHER – Eigenes Motion Div */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7 }}
               viewport={{ once: true }}
-              className="relative overflow-hidden"
+              className="space-y-6 md:space-y-10 mt-8"
             >
-              <Image
-              src="/images/projects/willenbrock/vorgehen.png"
-              alt="Final Result"
-              width={1920}
-              height={1080}
-              className="w-full h-auto rounded-2xl"
-              />
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white text-center">
+                Vorher–Nachher: Mengenauswahl
+              </h3>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 place-items-center">
+                {/* Vorher */}
+                <div className="flex flex-col items-center space-y-2">
+                  <p className="text-gray-400 text-sm md:text-base">Vorher</p>
+                  <div className="relative aspect-[5/3] w-[300px] rounded-2xl overflow-hidden bg-gray-800">
+                    <Image
+                      src="/images/projects/willenbrock/vorher.png"
+                      alt="Vorher UI"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+
+                {/* Nachher */}
+                <div className="flex flex-col items-center space-y-2">
+                  <p className="text-gray-400 text-sm md:text-base">Nachher</p>
+                  <div className="relative aspect-[5/3] w-[300px] rounded-2xl overflow-hidden bg-gray-800">
+                    <Image
+                      src="/images/projects/willenbrock/nachher.png"
+                      alt="Nachher UI"
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
             </motion.div>
 
             <motion.div
@@ -144,8 +192,7 @@ export default function Willenbrock() {
                     Auswertung & Erkenntnisse
                   </h2>
                   <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                    Die Auswertung der Usability-Tests und Interviews zeigte, an welchen Stellen Nutzer im Online-Shop stockten oder auf Probleme stießen. 
-                    Auf Basis dieser Erkenntnisse konnten gezielt Optimierungsvorschläge entwickelt werden, um die Nutzerführung zu verbessern und Kaufabbrüche zu reduzieren.
+                    Die Auswertung der Usability-Tests machte deutlich, wo Nutzer:innen im Online-Shop auf Probleme stießen. Die überarbeitete Mengenauswahl in der Produktübersicht ist dabei nur ein Beispiel für kritische Usability-Hindernisse. Ebenso wichtig waren Erkenntnisse aus Eyetracking, Lautem Denken und den begleitenden Interviews, die gemeinsam ein umfassendes Bild der Nutzererfahrung lieferten und die Grundlage für gezielte Optimierungen zur Verbesserung der Nutzerführung und Reduzierung von Kaufabbrüchen bildeten.
                   </p>
                 </div>
               </motion.div>

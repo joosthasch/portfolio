@@ -54,33 +54,6 @@ export default function VanGoghProject() {
             {/* CONTENT SECTIONS */}
         <section className="bg-[#141414] mt-32 py-16 sm:py-24 md:py-32 rounded-t-2xl sm:rounded-t-3xl">
           <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-16 space-y-16 md:space-y-24">
-             
-             {/* 4. Text Left / Image Right */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7 }}
-                viewport={{ once: true }}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
-              >
-                <div className="space-y-4">
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                    Research & Konzept
-                  </h2>
-                  <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                    Im Team haben wir analysiert, wie man das klassische Spiel digital unterstützen kann: Welche Sensorik wird benötigt? Wie kann die App das Spielerlebnis bereichern, ohne dass das Handy ständig benutzt werden muss? Dabei entstanden erste Konzepte für Userflows, Challenges und die Integration ins Spiel.
-                  </p>
-                </div>
-  
-                <div className="relative aspect-[22/17] overflow-hidden rounded-2xl max-h-[700px] w-full max-w-sm mx-auto lg:ml-auto lg:mr-0">
-                  <Image
-                    src="/images/projects/flunke/brainstorm.png"
-                    alt="AI Conversation"
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
-              </motion.div>
 
               {/* 1. Image Left / Text Right */}
                 <motion.div
@@ -90,7 +63,7 @@ export default function VanGoghProject() {
                     viewport={{ once: true }}
                     className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
                 >
-                    <div className="relative aspect-[13/18] overflow-hidden rounded-2xl h-[300px] sm:h-[400px] max-h-[600px] mx-auto lg:mx-0">
+                    <div className="relative aspect-[4/6] overflow-hidden rounded-2xl h-[500px] sm:h-[800px] max-h-[1000px] mx-auto lg:mx-0">
                     <Image
                         src="/images/projects/flunke/flowchart.png"
                         alt="VR Environment"
@@ -100,12 +73,15 @@ export default function VanGoghProject() {
                     </div>
     
                     <div className="space-y-4">
-                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                        Userflow & App-Integration
-                    </h2>
-                    <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                        Wir haben den Ablauf des klassischen Spiels aufgenommen und überlegt, wie die App und Challenges integriert werden können, ohne das Spielerlebnis zu stören. Der Userflow zeigt die Schritte vom Wurf bis zum Treffer, inklusive der Einbindung der App-Challenges und Tutorials.“
-                    </p>
+                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                        Research, Konzept & Userflow
+                      </h2>
+                      <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                        Im Team haben wir untersucht, wie sich das klassische Spiel digital unterstützen lässt – von der benötigten Sensorik bis zur Frage, wie die App das Erlebnis erweitert, ohne ständiges Handy-Handling zu verlangen. Dabei entstanden erste Ideen für Challenges, Tutorials und die Einbindung in den Spielablauf.
+                      </p>
+                      <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                        Auf Basis des klassischen Ablaufs haben wir einen Userflow entwickelt, der zeigt, wie Wurf, Treffer und App-Interaktionen zusammenlaufen und sich nahtlos ins Spiel integrieren, ohne den Spielfluss zu unterbrechen.
+                      </p>
                     </div>
                 </motion.div>
 

@@ -83,6 +83,34 @@ export default function VanGoghProject() {
                 </div>
               </motion.div>
 
+              {/* 1. Image Left / Text Right */}
+              <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.7 }}
+                  viewport={{ once: true }}
+                  className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
+              >
+                  <div className="relative aspect-[16/20] overflow-hidden rounded-2xl h-[400px] sm:h-[500px] lg:h-[700px] max-h-[700px] mx-auto lg:mx-0">
+                  <Image
+                      src="/images/projects/van-gogh/research.png"
+                      alt="VR Environment"
+                      fill
+                      className="object-cover hover:scale-105 transition-transform duration-500"
+                  />
+                  </div>
+  
+                  <div className="space-y-4">
+                    <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
+                      Recherche & Konzeptphase
+                    </h2>
+                    <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                      Zu Beginn führten wir eine konzentrierte Research-Phase durch, in der wir Ideen, technische Möglichkeiten und erste konzeptionelle Ansätze in Notion sammelten. Dabei stand vor allem die Frage im Mittelpunkt, wie KI in einer Ausstellung so eingesetzt werden kann, dass sie Besucher:innen nicht überfordert, sondern neugierig macht.                    </p>
+                    <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
+                      Schnell wurde deutlich, dass ein natürliches Gesprächserlebnis die niedrigste Einstiegshürde bietet. Deshalb prüften wir Speech-to-Text-Lösungen, passende KI-Modelle auf Basis der Van-Gogh-Briefe sowie Text-to-Speech-Varianten, die einen authentischen Klang erzeugen. Diese Recherche bildete die Grundlage für die Entscheidung, eine intuitive VR-Erfahrung zu entwickeln, die historischen Inhalt persönlich, zugänglich und emotional erlebbar macht.                    </p>
+                  </div>
+              </motion.div>
+
             {/* 5. Full-width Video Section */}
             <motion.div
                 initial={{ opacity: 0, y: 30 }}
@@ -91,7 +119,7 @@ export default function VanGoghProject() {
                 viewport={{ once: true }}
                 className="relative aspect-video overflow-hidden rounded-2xl"
               >
-                <div className="relative aspect-[16/9] max-h-[600px] mx-auto lg:mx-0 shadow-xl">
+                <div className="relative aspect-[16/9] max-h-[600px] w-full">
                   <video
                     src="/videos/van-gogh/gameplay.mp4"
                     controls
@@ -103,8 +131,24 @@ export default function VanGoghProject() {
                 </div>
               </motion.div>
 
+              {/* 5. Full-width Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }}
+              viewport={{ once: true }}
+              className="relative aspect-[21/17] overflow-hidden rounded-2xl"
+            >
+              <Image
+                src="/images/projects/van-gogh/kiconversation.png"
+                alt="Final Result"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+
            {/* 💬 3. Animated Conversation Section */}
-            <div className="bg-[#141414] rounded-2xl py-16 px-4 sm:px-8 md:px-12">
+            
               <motion.h2
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -112,9 +156,10 @@ export default function VanGoghProject() {
                 viewport={{ once: true }}
                 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-12 text-white"
               >
-                Ein Einblick in das Gesprächserlebnis
+                Wie ein Gespräch im Zimmer Van Goghs verlaufen könnte
               </motion.h2>
-
+              <div className="rounded-2xl py-16 px-4 sm:px-8 md:px-12 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: "url('/images/projects/van-gogh/gallery-4.png')" }}>
               <div className="flex flex-col space-y-6 max-w-3xl mx-auto">
                 {conversation.map((line, i) => (
                   <motion.div
@@ -127,10 +172,10 @@ export default function VanGoghProject() {
                     whileInView={{ opacity: 1, x: 0, y: 0 }}
                     transition={{ delay: i * 0.2, duration: 0.6 }}
                     viewport={{ once: true }}
-                    className={`max-w-[80%] p-4 rounded-2xl ${
+                    className={`max-w-[80%] p-4 rounded-2xl shadow-xl ${
                       line.speaker === "user"
                         ? "self-end bg-white text-[#141414]"
-                        : "self-start bg-[#2a2a2a] text-gray-100"
+                        : "self-start bg-[#1e1e1e] text-gray-100"
                     }`}
                   >
                     {line.text}
@@ -138,44 +183,6 @@ export default function VanGoghProject() {
                 ))}
               </div>
             </div>
-
-            {/* 4. Text Left / Image Right */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7 }}
-              viewport={{ once: true }}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
-            >
-              <div className="space-y-4">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                  KI-gestützte Konversation
-                </h2>
-                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Die virtuelle Umgebung basiert auf einem <a
-                    href="https://sketchfab.com/3d-models/van-gogh-room-311d052a9f034ba8bce55a1a8296b6f9"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white hover:underline"
-                    title="Sketchfab öffnen (öffnet in neuem Tab)"
-                  >
-                    Sketchfab-Modell
-                  </a>{" "} , das in Blender um zusätzliche Details ergänzt wurde, um Van Goghs Lebensraum atmosphärisch einzufangen. Die Interaktionen wurden in Unity für die Meta Quest 3 entwickelt.
-                </p>
-                <p className="text-base sm:text-lg md:text-xl leading-relaxed text-gray-300">
-                  Über Speech-to-Text wird die gesprochene Sprache an OpenAI gesendet, wo auf Grundlage von Van Goghs Briefen eine Antwort generiert wird. Diese wird anschließend per Text-to-Speech mit einem niederländischen Akzent wiedergegeben – und lässt so ein glaubhaftes Gespräch mit Van Gogh entstehen.
-                </p>
-              </div>
-
-              <div className="relative aspect-[9/16] overflow-hidden rounded-2xl max-h-[600px] w-full max-w-sm mx-auto lg:ml-auto lg:mr-0">
-                <Image
-                  src="/images/projects/van-gogh/code.png"
-                  alt="AI Conversation"
-                  fill
-                  className="object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-            </motion.div>
 
             {/* 5. Full-width Image */}
             <motion.div
