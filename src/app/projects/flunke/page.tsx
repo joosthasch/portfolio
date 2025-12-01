@@ -65,7 +65,7 @@ export default function VanGoghProject() {
                 >
                     <div className="relative aspect-[4/6] overflow-hidden rounded-2xl h-[500px] sm:h-[800px] max-h-[1000px] mx-auto lg:mx-0">
                     <Image
-                        src="/images/projects/flunke/flowchart.png"
+                        src="/images/projects/flunke/flowchartv2.png"
                         alt="VR Environment"
                         fill
                         className="object-cover hover:scale-105 transition-transform duration-500"

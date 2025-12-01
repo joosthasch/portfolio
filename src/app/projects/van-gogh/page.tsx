@@ -93,7 +93,7 @@ export default function VanGoghProject() {
               >
                   <div className="relative aspect-[16/20] overflow-hidden rounded-2xl h-[400px] sm:h-[500px] lg:h-[700px] max-h-[700px] mx-auto lg:mx-0">
                   <Image
-                      src="/images/projects/van-gogh/research.png"
+                      src="/images/projects/van-gogh/researchv2.png"
                       alt="VR Environment"
                       fill
                       className="object-cover hover:scale-105 transition-transform duration-500"
@@ -140,7 +140,7 @@ export default function VanGoghProject() {
               className="relative aspect-[21/17] overflow-hidden rounded-2xl"
             >
               <Image
-                src="/images/projects/van-gogh/kiconversation.png"
+                src="/images/projects/van-gogh/kiconversationv2.png"
                 alt="Final Result"
                 fill
                 className="object-cover"

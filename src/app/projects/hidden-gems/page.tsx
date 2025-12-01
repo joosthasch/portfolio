@@ -65,7 +65,7 @@ export default function VanGoghProject() {
               className="relative overflow-hidden"
             >
               <Image
-              src="/images/projects/hidden-gems/prozess.png"
+              src="/images/projects/hidden-gems/prozessv2.png"
               alt="Final Result"
               width={1920}
               height={1080}
@@ -81,9 +81,9 @@ export default function VanGoghProject() {
                 viewport={{ once: true }}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
             >
-                <div className="relative aspect-[17/16] overflow-hidden rounded-2xl h-[300px] sm:h-[400px] max-h-[600px] mx-auto lg:mx-0">
+                <div className="relative aspect-[17/16] overflow-hidden rounded-2xl h-[400px] sm:h-[500px] max-h-[600px] mx-auto lg:mx-0">
                 <Image
-                    src="/images/projects/hidden-gems/userflow.png"
+                    src="/images/projects/hidden-gems/userflowv2.png"
                     alt="VR Environment"
                     fill
                     className="object-cover hover:scale-105 transition-transform duration-500"
@@ -196,7 +196,7 @@ export default function VanGoghProject() {
                 viewport={{ once: true }}
                 className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center"
             >
-                <div className="relative aspect-[16/20] overflow-hidden rounded-2xl h-[300px] sm:h-[400px] max-h-[600px] mx-auto lg:mx-0">
+                <div className="relative aspect-[16/20] overflow-hidden rounded-2xl h-[400px] sm:h-[500px] max-h-[600px] mx-auto lg:mx-0">
                 <Image
                     src="/images/projects/hidden-gems/prototyp.png"
                     alt="VR Environment"

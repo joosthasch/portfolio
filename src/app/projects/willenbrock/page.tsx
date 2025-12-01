@@ -64,7 +64,7 @@ export default function Willenbrock() {
               className="relative overflow-hidden"
             >
               <Image
-              src="/images/projects/willenbrock/vorgehen.png"
+              src="/images/projects/willenbrock/vorgehenv2.png"
               alt="Final Result"
               width={1920}
               height={1080}
