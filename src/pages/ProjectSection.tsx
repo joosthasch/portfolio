@@ -17,6 +17,17 @@ const projects = [
     path: "/projects/hidden-gems",
   },
   {
+    title: "Päddl",
+    title2: "Mobile App",
+    year: "2024",
+    image: "/images/projects/paeddl.png",
+    hoverImage: "/images/projects/paeddl_hover.png",
+    subtitle:
+      "MOBILE APP, FIGMA, PROTOTYPING, UI, UX, USER FLOW, WIREFRAMES, UI DESIGN, SOCIAL FEATURES",
+    icon: "/images/projects/icons/paeddl_icon.png",
+    path: "/projects/paeddl",
+  },
+  {
     title: "Flunk-E",
     title2: "IoT-App",
     year: "2025",
